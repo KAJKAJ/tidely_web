@@ -1,0 +1,40 @@
+
+<div flow-init="{
+			 singleFile: false,
+			 target:'/api/fileuploads', 
+			 testChunks: false,
+			 generateUniqueIdentifier: getFlowFileUniqueId,
+			 simultaneousUploads: 3
+			}"
+
+      flow-prevent-drop
+      flow-drag-enter="style={border: '5px solid green'}"
+      flow-drag-leave="style={}"
+		
+      flow-files-added="flowFilesAdded($files)"
+	  	flow-files-submitted="$flow.upload()"
+	 	  
+      ng-style="style">
+
+	<!-- <div flow-init="" flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" class="ng-scope"> -->
+	  <div class="drop" flow-drop="" ng-class="dropClass">
+	  <!-- <div class="drop" ng-class="dropClass"> -->
+	    <span class="btn btn-block btn-default" flow-attrs="{accept:['image/*','video/mp4']}" flow-btn="" >사진 첨부 버튼<input type="file" multiple="multiple" style="visibility: hidden; position: absolute;"></span>
+	    <!-- <button type="button" class="btn btn-block btn-primary btn-alt" ng-show="isChanged" ng-click="uploadTimelineStory()">변경사항 저장</button> -->
+	    <b>또는</b>
+	    사진을 마우스로 여기로 옮겨주세요.
+	  </div>
+	  <br>
+
+	  <div class="row">
+		  <!-- <div ui-sortable="sortableOptions" class="superbox col-sm-12" ng-model="stories"> -->
+		  <div ui-sortable="sortableOptions" class="superbox col-sm-12" ng-model="storiesArray[selectedEraKey]">
+			  	<div ng-repeat="storyKey in storiesArray[selectedEraKey]" class="superbox-list" story="storiesObject[selectedEraKey][storyKey]" story-key="storyKey" ng-class="{active:$root.superboxToggled == storyKey,new:storiesObject[selectedEraKey][storyKey].newStory}" remove-selected-story="removeSelectedStory(storyKey)"></div>
+			  	<!-- <div ng-repeat="storyKey in storiesArray[selectedEraKey]">{{storyKey}}</div> -->
+    	</div><!-- sortable -->
+
+  	</div> <!-- row -->
+</div>
+
+
+

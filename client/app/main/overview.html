@@ -1,0 +1,135 @@
+<br/>
+<div ng-controller="overviewCtrl">
+<div class="container overview-wrapper" >
+	<div class="overview-item">
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3 text-center">
+				<span ng-if="!isMobile"><h1><strong>추억을 정리하고 나누어 보세요.</strong></h1></span>
+				<span ng-if="isMobile"><h3><strong>추억을 정리하고 나누어 보세요.</strong></h3></span>
+		    <span class="text-muted">메모리얼을 생성하시면 아래와 같은 기능이 제공됩니다.</span>
+		  </div>
+	  </div>
+	  <br/>
+	  
+	  <div class="row text-center" ng-if="!isMobile">
+	  	<div class="col-lg-4">
+	    	<div class="feature feature-slideshow">
+	    		<div class="feature-main">
+	    			<img src="assets/images/overview_1.png" class="overview-img feature-image img-responsive">
+	    			<div class="feature-overlay">
+	    				<h2 class="feature-name">슬라이드 쇼</h2>
+	    				<p class="feature-description">
+	    					추억이 담긴 사진들을 업로드 하고 슬라이드 쇼를 감상해 보세요.
+	    				</p>
+	    				<span class="feature-preview" ng-click="openOverviewModal('video')">&nbsp;<span class="hover-cursor">미리 보기&nbsp;</span></span>
+	    			</div>	    			
+			    </div>
+			    <div class="feature-footer">
+			    	<span class="feature-label hover-cursor" ng-click="openOverviewModal('video')">슬라이드 쇼</span>
+						<i class="fa fa-play-circle-o hover-cursor" style="float:right;" ng-click="openOverviewModal('video')"></i>
+						</div>
+		    </div>
+	   </div>
+	   <div class="col-lg-4">
+	    	<div class="feature feature-timeline">
+	    		<div class="feature-main">
+	    			<img src="assets/images/overview_2.png" class="overview-img feature-image img-responsive">
+	    			<div class="feature-overlay">
+	    				<h2 class="feature-name">시간으로 보기</h2>
+	    				<p class="feature-description">
+								시간의 흐름으로 추억을 되짚어 보는건 어떨까요?	</p>
+	    				<span class="feature-preview" ng-click="openOverviewModal('timeline')"><span class="hover-cursor">&nbsp;미리 보기&nbsp;</span></span>
+	    			</div>	    			
+			    </div>
+			    <div class="feature-footer">
+			    	<span class="feature-label hover-cursor" ng-click="openOverviewModal('timeline')">시간으로 보기</span>
+						<i class="fa fa-clock-o hover-cursor" style="float:right;" ng-click="openOverviewModal('timeline')"></i>
+						</div>
+		    </div>
+	   </div>
+
+	   <div class="col-lg-4">
+	    	<div class="feature feature-storymap">
+	    		<div class="feature-main">
+	    			<img src="assets/images/overview_3.png" class="overview-img feature-image img-responsive">
+	    			<div class="feature-overlay">
+	    				<h2 class="feature-name">장소로 보기</h2>
+	    				<p class="feature-description">
+								추억의 장소를 따라가 보세요.</p>
+	    				<span class="feature-preview" ng-click="openOverviewModal('storymap')"><span class="hover-cursor">&nbsp;미리 보기&nbsp;</span></span>
+	    			</div>	    			
+			    </div>
+			    <div class="feature-footer">
+			    	<span class="feature-label hover-cursor" ng-click="openOverviewModal('storymap')">장소로 보기</span>
+						<i class="fa fa-map-marker hover-cursor" style="float:right;" ng-click="openOverviewModal('storymap')"></i>
+						</div>
+		    </div>
+	   </div>
+ 	  </div>
+
+ 	  <div class="row text-center" ng-if="isMobile">
+	  	<div class="col-lg-4">
+	    	<div class="feature-slideshow">
+	    		<div>
+	    			<img src="assets/images/overview_1.png" class="overview-img feature-image img-responsive">
+			    </div>
+			    <div class="feature-footer">
+			    	<span class="feature-label hover-cursor">슬라이드 쇼</span>
+						<i class="fa fa-play-circle-o hover-cursor" style="float:right;"></i>
+					</div>
+		    </div>
+	   </div>
+	   <div class="col-lg-4">
+	    	<div class="feature-timeline">
+	    		<div>
+	    			<img src="assets/images/overview_2.png" class="overview-img feature-image img-responsive">
+			    </div>
+			    <div class="feature-footer">
+			    	<span class="feature-label hover-cursor">시간으로 보기</span>
+						<i class="fa fa-clock-o hover-cursor" style="float:right;"></i>
+						</div>
+		    </div>
+	   </div>
+
+	   <div class="col-lg-4">
+	    	<div class="feature-storymap">
+	    		<div>
+	    			<img src="assets/images/overview_3.png" class="overview-img feature-image img-responsive">
+			    </div>
+			    <div class="feature-footer">
+			    	<span class="feature-label hover-cursor">장소로 보기</span>
+						<i class="fa fa-map-marker hover-cursor" style="float:right;"></i>
+						</div>
+		    </div>
+	   </div>
+ 	  </div>
+ 	 <br>
+ 	 
+		</div>
+	</div>
+
+	<div class="container">
+   <div class="block-section">
+      <div class="block-title">
+          <h2><strong>서비스 소개</strong></h2>
+      </div>
+     <div class="panel">
+		 	 <div class="row text-center">
+		 	 		<div class="col-lg-3"></div>
+				  <div class="col-lg-6 interview-wrapper">
+			    	<img src="assets/images/overview_4.png" class="img-responsive"
+			    		ng-click="openInterviewModal()">
+			    	<div class="text-center"><h3>도래솔 서비스 소개 인터뷰</h3></div>
+			      <div class="overlay text-center">
+		        	<div class="overlay_detail">
+		        	<i class="fa fa-5x fa-play" ng-click="openInterviewModal()"></i>
+     				 	</div>
+      			</div>
+			      </div>
+			    </div>
+		 			<div class="col-lg-3"></div>
+		 	 </div>
+		 	</div>
+	 </div>
+	 </div>
+<br/>

@@ -1,0 +1,1 @@
+forever stop server/app.js

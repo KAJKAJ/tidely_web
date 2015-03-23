@@ -1,0 +1,30 @@
+<span ng-if="story.newStory">
+	<div ng-if="story.file.type == 'image'" tooltip-placement="top" tooltip="드래그로 순서를 조정하거나 클릭해서 자세한 정보를 입력하세요">
+		<img flow-image="story.file" class="superbox-img" ng-show="story.file.isComplete()"> 
+		<!-- <img flow-image="story.file" class="superbox-img"> -->
+	</div>
+	<div ng-if="story.file.type == 'video'">
+		<!-- <video flow-video="story.file" class="superbox-img" ng-show="story.file.isComplete()" controls>  -->
+		<video flow-video="story.file" class="superbox-img" ng-show="story.file.isComplete()" controls> 
+	</div>
+	<div class="superbox-spinner" ng-show="!story.file.isComplete()">
+		<i class="fa fa-spinner fa-spin fa-4x text-success"></i> 
+	</div>
+	<div class="story-remove fa fa-times-circle fa-2x text-danger" ng-click="removeStory()">
+	</div>
+</span>
+
+<span ng-if="!story.newStory" tooltip-placement="top" tooltip="드래그로 순서를 조정하거나 클릭해서 자세한 정보를 입력하세요">
+	<div ng-if="story.file.type == 'image'">
+		<img ng-src="{{story.file.url}}" class="superbox-img"> 
+		<!-- <img flow-image="story.file" class="superbox-img"> -->
+	</div>
+	<div ng-if="story.file.type == 'video'">
+    <video controls class="superbox-img">
+      <source src="{{story.file.url}}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+	<div class="story-remove fa fa-times-circle fa-2x text-danger" ng-click="removeStory()">
+	</div>	
+</span>

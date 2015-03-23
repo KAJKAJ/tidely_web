@@ -1,0 +1,40 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<div>
+<div class="container overview-wrapper" >
+	<div class="overview-item">
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3 text-center">
+				<span ng-if="!isMobile"><h1><strong>서호 추모공원</strong></h1></span>
+				<span ng-if="isMobile"><h3><strong>서호 추모공원</strong></h3></span>
+		    <span class="text-muted">고인의 숨결을 간직한 서호 추모공원</span>
+		  </div>
+	  </div>
+	  <br/>
+	  
+	  <div class="row text-center">
+			<div style="height: 490px">
+		    <carousel interval="carouselInterval">
+		      <slide ng-repeat="slide in carouselSlides" active="slide.active">
+		        <img ng-src="{{slide.image}}" style="margin:auto;">
+		        <!-- <div class="carousel-caption">
+		          <h4>Slide {{$index}}</h4>
+		          <p>{{slide.text}}</p>
+		        </div> -->
+		      </slide>
+		    </carousel>
+		  </div>	
+ 	  </div>
+
+ 	  <br/>
+ 	  <div class="row text-center">
+ 	  	<img ng-src="assets/images/seohopark_intro_1.png" style="margin:auto;"/>
+ 	  </div>
+ 	  <div class="row text-center">
+ 	  	<img ng-src="assets/images/seohopark_intro_2.png" style="margin:auto;"/>
+ 	  </div>
+ 	</div>
+
+<br/><br/>

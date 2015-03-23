@@ -1,0 +1,229 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container contents">  
+  <div>
+    <div class="text-center">
+      <h3>메모리얼 제작 대행</h3>
+      <h4>보관중인 앨범이나 사진을 보내주시면 사이트 제작을 대행해드리고, DVD/USB로 스캔본을 전달 드립니다.</h4>
+      <br/>
+    </div>
+    <!-- Alternative Style -->
+    <div class="row">
+      <div class="col-sm-4">
+        <table class="table table-borderless table-pricing table-featured">
+          <thead>
+            <tr>
+              <th>신청 방법</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+             <td style="text-align:left;height:300px;">
+               <br/>
+               <ul>
+                <li>하단의 신청서를 작성합니다. (회원가입 필요)</li><br>
+                <li>사진 및 앨범을 준비합니다.</li><br>
+                <li>신청서 연락처로 저희가 연락을 드립니다.</li><br>
+                <li>택배 기사가 방문하여 수거합니다.<br>
+                  (직접 발송을 원하실 경우 택배/퀵 서비스를 이용해 아래 주소로 발송해주세요)</li>
+               </ul>
+             </td>
+            </tr>
+            <tr>
+              <td class="table-price" style="text-align:left;height:120px;">
+                보내실 곳 :<br>
+                경기도 성남시 분당구 판교로 253 판교이노밸리 B동 503호 <br> (우) 463-400
+                <!-- <h1><i class="fa fa-picture-o fa-2x"></i></h1> -->
+              </td>
+            </tr>
+            <!-- <tr>
+              <td>
+                <a href="javascript:void(0)" class="btn btn-success">가격</a>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-4">
+        <table class="table table-borderless table-pricing table-featured">
+          <thead>
+            <tr>
+              <th>비용 및 결제</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+             <td style="text-align:left;height:300px;">
+                <div class="row">
+                  <div class="col-md-3 text-center">사진 수 :</div>
+                  <div class="col-md-4"> 
+                      <input type="number" ng-model="estimate.img" min="0" class="form-control" placeholder="갯수 입력" ng-change="changeTot()">
+                  </div>
+                  <div class="col-md-5">
+                      <span class="help-block">50장 단위로 1만원  </span>
+                  </div>
+
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3 text-center">DVD 수 :</div>
+                  <div class="col-md-4"> 
+                      <input type="number" ng-model="estimate.dvd" min="0" class="form-control" placeholder="갯수 입력" ng-change="changeTot()">
+                  </div>
+                  <div class="col-md-5">
+                      <span class="help-block">개당 만원</span>
+                  </div>
+                </div>
+                                <br>
+
+                <div class="row">
+                  <div class="col-md-3 text-center">USB :</div>
+                  <div class="col-md-4"> 
+                      <input type="number" ng-model="estimate.usb" min="0" class="form-control" placeholder="갯수 입력" ng-change="changeTot()">
+                  </div>
+                  <div class="col-md-5">                        
+                      <span class="help-block">개당 만원</span>
+                  </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                  <div class="col-md-3 text-center">기타 비용:</div>
+                  <div class="col-md-4"> 
+                     1 만원
+                  </div>
+                  <div class="col-md-5">
+                      <span class="help-block">사이트 생성비용, 배송비  </span>
+                  </div>
+
+                </div>
+                <hr>
+
+                <div class="row">
+                  <div class="col-md-3 text-center">예상 비용: </div>
+                  <div class="col-md-6 pull-right"><b class="text-primary">{{estimate.tot + 1}}</b>   만원 (배송료 포함)</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-price" style="text-align:left;height:120px;">
+                <label>
+                    - 샘플 결과물 확인후 <b class="text-primary">결제 진행 또는 취소가능</b>합니다.
+                    <br>
+                    - 실제 총 비용은 문자 및 이메일로 알려드립니다.
+                    <br>
+                    <!-- - 베타 기간동안 총 제작 대행 금액의 <b class="text-primary">20%를 할인</b>해 드립니다. -->
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-4">
+        <table class="table table-borderless table-pricing table-featured">
+          <thead>
+            <tr>
+              <th>소요 기간</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+             <td style="text-align:left;height:300px;">
+               <br/>
+               <ul>
+                <li>택배 수령 후 약 3영업일 이내에 제작을 완료합니다.</li><br>
+                <li>제작 완료된 사이트의 양도는 별도로 안내해 드립니다.</li><br>
+                <li>모든 절차가 마무리 되면 택배로 사진 및 앨범을 회송합니다.(무료)</li>
+               </ul>
+             </td>
+            </tr>
+            <tr>
+              <td class="table-price" style="text-align:left;height:120px;">
+                결제 완료 순에 따라 진행되며, 3영업일 이내에 완료가 힘들 경우 미리 연락 드립니다.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <hr>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <div class="block">
+      <div class="block-title">
+        <h2>제작 대행 서비스 신청서</h2>
+      </div>
+       <div ng-if="saveMessage.success == true">
+        <div class="alert alert-success">
+         <h4><i class="fa fa-check-circle"></i> {{saveMessage.text}}</h4>
+        </div>
+      </div>
+      <div ng-if="saveMessage.success == false">
+        <div class="alert alert-danger">
+         <h4><i class="fa fa-frown-o"></i> {{saveMessage.text}}</h4>
+        </div>
+      </div>
+
+      <form name="newRequestForm" ng-submit="createRequest(newRequestForm)" class="form-horizontal" novalidate>
+        <div class="form-group">
+          <label class="col-md-3 control-label">고인 성함 <span class="text-danger">*</span></label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" ng-required="true" ng-model="newRequest.memorialName"  ng-click="checkLogin()">
+            <span class="help-block">고인의 성함을 입력해 주세요. 메모리얼 제작 시 사용됩니다.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">신청자 이름 <span class="text-danger">*</span></label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" ng-required="true" ng-model="newRequest.name" ng-click="checkLogin()">
+            <span class="help-block">신청하시는 분의 성함을 입력해 주세요. 택배 이용시 사용됩니다.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label" for="masked_phone">휴대폰 번호 <span class="text-danger">*</span></label>
+          <div class="col-md-7">
+            <input type="tel" class="form-control" id="masked_phone" name="masked_phone" ng-required="true" ng-model="newRequest.phoneNumber" ng-click="checkLogin()" placeholder="(999) 999-9999">
+            <span class="help-block">연락 받으실 휴대폰 번호를 입력해 주세요. 택배 이용시 사용됩니다.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">주소 <span class="text-danger">*</span></label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" ng-required="true" ng-model="newRequest.address" ng-click="checkLogin()">
+            <span class="help-block">사진을 돌려받으실 주소를 입력해 주세요. 택배 이용시 사용됩니다.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">이메일</label>
+          <div class="col-md-7">
+            <input type="email" class="form-control" ng-model="newRequest.email" ng-click="checkLogin()">
+            <span class="help-block">연락 받으실 이메일 주소를 입력해 주세요. 진행 과정을 알려드립니다.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">DVD 신청 갯수</label>
+          <div class="col-md-7">
+            <input type="number" class="form-control" ng-model="newRequest.dvd" ng-click="checkLogin()" min="0">
+            <span class="help-block">추가로 신청하실 DVD의 갯수를 입력해 주세요</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">USB 신청 갯수</label>
+          <div class="col-md-7">
+            <input type="number" class="form-control" ng-model="newRequest.usb" ng-click="checkLogin()" min="0">
+            <span class="help-block">추가로 신청하실 USB의 갯수를 입력해 주세요</span>
+          </div>
+        </div>
+        <div class="form-group form-actions">
+          <div class="col-md-7 col-md-offset-3">
+            <button type="submit" class="btn btn-lg btn-success" ng-disabled="newRequestForm.$invalid||!isLoggedIn">제작대행 신청</button>
+          </div>
+        </div>
+      </form>
+    </div>
+   </div>
+</div>
+</div>
+<div ng-include="'components/footer/footer.html'"></div>
+    

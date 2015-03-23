@@ -1,0 +1,71 @@
+<div>
+	<p></p>
+  <div class="block-section">
+    <div class="block-title">
+        <h2><strong>멤버</strong></h2>
+    </div>
+    <!-- Leader First -->
+    <div masonry item-selector=".brick-member">
+      <div class="brick-member col-sm-2">
+        <div class="brick-member-detail">
+          <img ng-src="{{users[leader.uid].profile.file.url}}" class="img-responsive" style="width:150px;height:150px"/>
+        </div>
+      </div>
+      <div masonry-brick class="brick-member col-sm-2" ng-repeat="(uid, member) in members">
+        <div class="brick-member-detail">
+          <img ng-src="{{users[uid].profile.file.url}}" class="img-responsive" style="width:150px;height:150px"/>
+          <div class="overlay text-center">
+            <br/><br/><br/><br/>
+            <div class="overlay_detail">
+              <h4><strong>{{users[member.uid].profile.name}}</strong></h4>
+              <button ng-if="leader.uid == currentUser.uid" type="button" class="btn btn-success" ng-click="removeMember(uid)">탈퇴 시키기</button>
+              <button ng-if="uid == currentUser.uid" type="button" class="btn btn-success" ng-click="removeMember(uid, 'member')">탈퇴하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-section">
+    <div class="block-title">
+      <h2><strong>가입 대기자</strong></h2>
+    </div>
+    <div ng-if="watingsCnt==0">
+      <div class="alert alert-success">
+       <h4><i class="fa fa-check-circle"></i> 가입 요청중인 대기자가 없습니다.</h4>
+      </div>
+    </div>
+    <div masonry item-selector=".brick-waiting" ng-if="watingsCnt>0">
+      <div masonry-brick class="brick-waiting col-sm-3" ng-repeat="(uid, member) in waitings">
+        <div class="brick-waiting-detail">
+          <img ng-src="{{users[uid].profile.file.url}}" class="img-responsive" style="width:150px;height:150px"/>
+          <div class="overlay text-center">
+            <br/><br/><br/><br/>
+            <div class="overlay_detail">
+              <h4><strong>{{users[member.uid].profile.name}}</strong></h4>
+              <button ng-if="leader.uid == currentUser.uid" type="button" class="btn btn-success" ng-click="moveMember(uid)">가입 승인하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+  </div>
+  
+  <!-- invite url -->
+  <div class="block-section" ng-if="user">
+    <div class="block-title">
+      <h2><strong>초대하기</strong></h2>
+    </div>
+    <div class="alert alert-success">
+     <h4><i class="fa fa-envelope-o"></i> 주소 - <strong>{{inviteUrl}}</strong></h4>
+     위의 주소를 통해 접속하시면 상대방을 초대 할 수 있습니다.
+    </div>
+    
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,81 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import 'font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    /*
+    .container {
+        max-width: 730px;
+    }
+    */
+}
+
+input.ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
+
+// Component styles are injected through grunt
+// injector
+@import '_imported/deckgrid.scss';
+@import '_imported/ng-dialog-theme-large.scss';
+@import '_imported/proui.scss';
+@import '_imported/proui_spring_theme.scss';
+@import 'account/login/login.scss';
+@import 'admin/admin.scss';
+@import 'main/main.scss';
+@import 'memorial/create/create.scss';
+@import 'memorial/member/member.scss';
+@import 'memorial/memorial.scss';
+@import 'memorial/storyline/storyline.scss';
+@import 'memorial/storymap/storymap.scss';
+@import 'memorial/timeline/timeline.scss';
+@import 'memorial/timeline/timeline_story.scss';
+@import 'memorials/memorials.scss';
+@import 'navbar/navbar.scss';
+// endinjector
+
+.block-title{
+    background-color: #ebf2ee;
+}
+
+.timenav-background{
+    background-color: #ebf2ee;
+}
+
+.hover-cursor:hover{
+  cursor:pointer;
+}
+
+.hover-opacity:hover{
+  opacity: 0.8;
+}
+
+.img-center{
+  margin:0 auto;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.col-xs-12{
+  @media screen and (max-width: 900px) {
+    padding-left:5px;
+    padding-right:5px;
+  }
+}
+

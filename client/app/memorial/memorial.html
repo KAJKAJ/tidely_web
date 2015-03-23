@@ -1,0 +1,98 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div ng-if="isMobile" class="alert alert-info alert-dismissable" style="padding-top:60px;">
+  <h4><i class="fa fa-info-circle"></i> Info</h4> 모바일 웹에서는 "이야기"와 같은 일부 기능을 지원하지 않습니다. 더 많은 기능을 사용하길 원하시는 분은 PC로 접속해 주시길 바랍니다.
+</div>
+
+<div class="container contents">	
+  <div class="col-md-2" >
+		<div ng-if="!isMobile" flow-init="{
+       singleFile: true, 
+       target:'/api/fileuploads', 
+       testChunks: false,
+       generateUniqueIdentifier: getFlowFileUniqueId
+     }"
+     flow-file-added="fileUploading=true"
+     flow-files-submitted="$flow.upload()"
+     ng-controller="ProfileCtrl">
+      <div class="flow-prevent-drop">
+        <a ui-sref="memorial.profile({id:memorialKey})" tooltip-placement="top" tooltip="프로필 보기">
+          <img ng-if="!$flow.files[0]" ng-src="{{memorial.file.url}}" class="img-responsive hover-opacity-8"/>
+          <div ng-if="$flow.files[0]">
+            <img flow-img="$flow.files[0]" class="img-responsive"/>
+          </div>
+        </a>
+        <div ng-if="isOwner" class="profile-img-upload-btn">
+          <span class="pull-left">&nbsp;</span>
+          <span class="fa-stack fa-lg pull-left" flow-btn flow-attrs="{accept:'image/*'}" style="cursor:pointer;">
+            <i class="fa fa-circle fa-stack-2x text-success"></i>
+            <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+          </span>
+        </div>  
+        <button ng-if="isOwner && $flow.files[0] && lastUploadingFile" class="btn btn-block btn-success" ng-disabled="fileUploading" ng-click="changeProfileImage()">저장</button>
+        <div ng-if="user">
+         <button ng-if="isGuest" class="btn btn-block btn-success" ng-click="subscribe()">가입하기</button>
+        </div>
+      </div>
+    </div>
+    <div ng-if="isMobile" ng-controller="ProfileCtrl">
+      <div>
+        <img ng-if="!$flow.files[0]" ng-src="{{memorial.file.url}}" class="img-responsive hover-opacity-8"/>
+        <button ng-if="isGuest" class="btn btn-block btn-success" ng-click="subscribe()">가입하기</button>
+      </div>
+    </div>
+    <div class="text-center" style="clear:both;">
+      <h3> {{memorial.name}} </h3>  	
+      <br/>
+      <h5>{{memorial.description}}</h5>
+    </div>
+    <div class="row" ng-if="memorial.$id == '-JYsA_x7fd-Nu6y5AXOj'">
+      <div class="col-xs-12">
+        <a href="http://www.sky-castle.co.kr/" target="_blank">
+          <img ng-src="/assets/images/skycastle.png" class="img-responsive">
+        </a>
+      </div>
+    </div>
+    <br/>
+    <ul class="nav nav-pills nav-stacked" role="tablist" ng-if="!isMobile">
+	  	<!-- <li ng-class="{active: $state.includes('memorial.timeline')}" tooltip-placement="bottom" tooltip="시간의 흐름에 따른 일대기를 만들어보세요">
+        <a ui-sref="memorial.timeline({id:memorialKey})"><i class="fa fa-road"></i> Timeline</a>
+      </li> -->
+	  	<li ng-class="{active: $state.includes('memorial.storymap')}" tooltip-placement="bottom" tooltip="그 분의 이야기를 들어보세요">
+        <a ui-sref="memorial.storymap({id:memorialKey})"><i class="fa fa-road"></i> 이야기</a>
+      </li>
+			<li ng-class="{active: $state.includes('memorial.storyline')}"  tooltip-placement="bottom" tooltip="전하고 싶은 말을 적어보세요">
+        <a ui-sref="memorial.storyline({id:memorialKey})"><i class="fa fa-comment"></i> 하고싶은 말</a>
+      </li>
+      <li ng-class="{active: $state.includes('memorial.member')}" tooltip-placement="bottom" tooltip="함께하는 분들을 확인해 보세요">
+        <a ui-sref="memorial.member({id:memorialKey})"><i class="fa fa-users"></i> 함께하는 분들</a>
+      </li>
+      <li>
+        <audio id="bg_music" controls autoplay loop style="width:180px; display:block; margin:10px;">
+<!--           <source src="/assets/audio/Terminal_D.mp3" type="audio/mpeg">
+          <source src="/assets/audio/Terminal_D.mp3" type="audio/mpeg">
+ -->          Your browser does not support the audio tag.
+        </audio>
+      </li>
+		</ul>
+    <ul class="nav nav-pills nav-stacked" role="tablist" ng-if="isMobile">
+      <li><a disabled style="color:gray;"><i class="fa fa-road"></i> 이야기</a></li>
+      <li ng-class="{active: $state.includes('memorial.storyline')}"  tooltip-placement="bottom" tooltip="전하고 싶은 말을 적어보세요">
+        <a ui-sref="memorial.storyline({id:memorialKey})"><i class="fa fa-comment"></i> 하고싶은 말</a>
+      </li>
+      <li ng-class="{active: $state.includes('memorial.member')}" tooltip-placement="bottom" tooltip="함께하는 분들을 확인해 보세요">
+        <a ui-sref="memorial.member({id:memorialKey})"><i class="fa fa-users"></i> 함께하는 분들</a>
+      </li>
+    </ul>
+
+  </div>
+  <br/>
+  <br/>
+	  
+  <!-- timeline start -->
+  <div class="col-md-10 col-xs-12">
+  	<div ui-view=""></div>
+  </div>
+</div>
+<div ng-include="'components/footer/footer.html'"></div>
+    
+      

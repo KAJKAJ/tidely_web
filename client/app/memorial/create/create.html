@@ -1,0 +1,95 @@
+<div flow-init="{
+		   singleFile: true, 
+			 target:'/api/fileuploads', 
+			 testChunks: false,
+			 generateUniqueIdentifier: getFlowFileUniqueId
+		 }"
+		 flow-file-added="fileUploading=true"
+		 flow-files-submitted="$flow.upload()"
+		 ng-controller="MemorialCreateCtrl">
+
+	<div ng-include="'components/navbar/navbar.html'"></div>
+
+	<div class="container contents" flow-prevent-drop>	
+		<form name="newMemorialForm" ng-submit="createMemorial(newMemorialForm)" novalidate>
+		  <div class="col-md-2">
+		  	<div class="form-group text-center">
+		  		<div ng-if="!$flow.files[0]" class="profile-img-empty"></div>
+		  		<div ng-if="$flow.files[0]">
+						<img flow-img="$flow.files[0]" class="img-responsive"/>
+					</div>
+					<div class="profile-img-upload-btn">
+						<span class="pull-left">&nbsp;</span>
+						<span class="fa-stack fa-lg pull-left" flow-btn flow-attrs="{accept:'image/*'}" style="cursor:pointer;">
+						  <i class="fa fa-circle fa-stack-2x text-success"></i>
+						  <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+						</span>
+					</div>	
+				</div>
+		  </div>
+		  <div class="col-md-10">
+		  	<div class="input-group">
+            <span class="input-group-addon">이름</span>
+            <input type="text" class="form-control" name="name" placeholder="이름을 입력하세요" ng-model="newMemorial.name" ng-required="true">
+        </div>
+			  <div class="alert alert-danger" role="alert"
+			  		 ng-show="newMemorialForm.name.$dirty && newMemorialForm.name.$invalid">
+			  		 <span ng-show="newMemorialForm.name.$error.required">이름을 입력해 주세요.</span>
+			  </div>
+			  <br/>
+
+		  	<div class="input-group">
+            <span class="input-group-addon">이야기 시작하는 날</span>
+            <input type="text" class="form-control" name="dateOfBirth" placeholder="이야기를 시작하고 싶은 날을 입력하세요." 
+				    is-open="dateOfBirthOpened" datepicker-popup="yyyy-MM-dd" max-date="today"
+				    ng-required="true" ng-model="newMemorial.dateOfBirth"/>
+		        <span class="input-group-btn">
+		          <button type="button" class="btn btn-default" ng-click="openDatepicker($event,'dateOfBirthOpened')"><i class="glyphicon glyphicon-calendar text-success"></i></button>
+		        </span>
+        </div>
+	      <div class="alert alert-danger" role="alert"
+		  		 ng-show="newMemorialForm.dateOfBirth.$dirty && newMemorialForm.dateOfBirth.$invalid">
+		  		 <span ng-show="!newMemorialForm.dateOfBirth.$error.date&&newMemorialForm.dateOfBirth.$error.required">이야기를 시작하는 날을 입력해주세요.</span>
+		  		 <span ng-show="newMemorialForm.dateOfBirth.$error.date">정확한 날짜 형식이 아닙니다.</span>
+		  	</div>
+		  	<br/>
+
+		  	<div class="input-group">
+            <span class="input-group-addon">이야기가 끝나는 날</span>
+            <input type="text" class="form-control" name="dateOfDeath" placeholder="이야기가 끝나는 날을 입력하세요" 
+				    is-open="dateOfDeathOpened" datepicker-popup="yyyy-MM-dd" min-date="newMemorial.dateOfBirth" max-date="today"
+				    ng-required="true" ng-model="newMemorial.dateOfDeath"/>
+		        <span class="input-group-btn">
+		          <button type="button" class="btn btn-default" ng-click="openDatepicker($event,'dateOfDeathOpened')"><i class="glyphicon glyphicon-calendar text-success"></i></button>
+		        </span>
+        </div>
+	      <div class="alert alert-danger" role="alert"
+		  		 ng-show="newMemorialForm.dateOfDeath.$dirty && newMemorialForm.dateOfDeath.$invalid">
+		  		 <span ng-show="!newMemorialForm.dateOfDeath.$error.date&&newMemorialForm.dateOfDeath.$error.required">이야기가 끝나는 날을 입력해주세요.</span>
+		  		 <span ng-show="newMemorialForm.dateOfDeath.$error.date">정확한 날짜 형식이 아닙니다.</span>
+		  	</div>
+
+		  	<div class="alert alert-danger" role="alert"
+		  		 ng-show="newMemorialForm.name.$valid && newMemorialForm.dateOfBirth.$valid &&  newMemorialForm.dateOfDeath.$valid && newMemorialForm.$valid == false">		  		 
+		  		 <span>기간 설정이 잘못되었습니다.</span>
+		  	</div>
+		  	<br/>
+		  	
+		  	<textarea class="form-control" ng-model="newMemorial.description" rows="5" placeholder="소개글을 입력하세요.." style="resize: vertical;margin: 1px 0px 10px;"/>
+       
+		  	<div class="form-group">
+          <label class="switch switch-success" for="val_public">
+            <input type="checkbox" id="val_public" name="val_public" ng-model="newMemorial.public">
+            <span tooltip-placement="bottom" tooltip="공개 설정"></span>
+          </label>
+          <label ng-if="newMemorial.public" class="public-label"> 현재 공개 상태 입니다. 공개 상태에선 승인없이 다른 사람이 컨텐츠를 볼 수 있습니다. </label>
+          <label ng-if="!newMemorial.public" class="public-label"> 현재 비공개 상태 입니다. 비공개에선 만드신 분의 승인없이 다른 사람이 메모리얼에 접근할 수 없습니다.</label>
+        </div> 
+		  	<br/>
+
+		  	<button type="submit" class="btn btn-lg btn-success" ng-disabled="fileUploading||newMemorialForm.$invalid||!newMemorial.lastUploadingFile">만들기</button>		  
+		  	<br/>
+		  </div>
+	  </form>
+	</div>
+</div>

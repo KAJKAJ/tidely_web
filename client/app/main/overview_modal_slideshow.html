@@ -1,0 +1,35 @@
+<div>
+  <!-- story name, image , story description, story start date, location(?) --> 
+  <!-- <div class="modal-header">
+    슬라이드 쇼
+  </div> -->
+  <div class="modal-body" style="padding:0px;">
+    <span class="fa-stack fa-lg overview-btn-close" ng-click="cancel()">
+      <i class="fa fa-circle-o fa-stack-2x text-danger" ></i>
+      <i class="fa fa-stack-1x fa-close text-danger"></i>
+    </span>
+    <div ng-if="mode=='interview'">
+      <iframe src="//player.vimeo.com/video/106881479?autoplay=true" width="100%" height="800px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+    <!-- <button class="btn btn-success overview-btn-close" ng-click="cancel()">닫기</button> -->
+    <div ng-if="mode=='video'">
+      <div class="slidegroup">
+        <div id="slide{{index}}" class="slideshow" ng-repeat="(index, items) in slides">
+          <span ng-repeat="item in items">
+            <img ng-if="!item.main" class="{{item.class}} overview" ng-src="{{item.src}}">
+            <img ng-if="item.main" class="{{item.class}} overview" ng-src="{{item.src}}" slideshow-main-image/>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div ng-if="mode=='timeline'" style="padding:0px 10px 0px 10px;">
+      <div id="timeline-embed" timeline-embed></div>
+    </div>
+    <div ng-if="mode=='storymap'"  style="padding:0px 10px 0px 10px;">
+      <div id="mapdiv" style="width: 100%; height: 600px;"></div>
+    </div>
+  </div> 
+  <!-- <div class="modal-footer">
+    <button class="btn btn-success" ng-click="cancel()">닫기</button>
+  </div> -->
+</div>

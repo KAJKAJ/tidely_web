@@ -1,0 +1,237 @@
+[4mRunning "server" task[24m
+[31m>> [39mThe `server` task has been deprecated. Use `grunt serve` to start a server.
+
+[4mRunning "serve" task[24m
+
+[4mRunning "clean:server" (clean) task[24m
+Cleaning .tmp...[32mOK[39m
+
+[4mRunning "env:all" (env) task[24m
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(8 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "concurrent:server" (concurrent) task[24m
+    
+    [4mRunning "sass:server" (sass) task[24m
+    File .tmp/app/app.css created.
+    
+    [32mDone, without errors.[39m
+    
+    
+    Execution Time (2014-07-25 08:30:15 UTC)
+    loading tasks  46ms  ▇▇ 3%
+    sass:server    1.6s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 97%
+    Total 1.6s
+    
+[4mRunning "injector:scripts" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mjs[39m files [90m(24 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(8 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "injector:css" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+[32m>> [39mNothing changed
+
+[4mRunning "bowerInstall:target" (bowerInstall) task[24m
+
+angular-i18n was not injected in your file.
+Please go take a look in "client/bower_components/angular-i18n" for the file you need, then manually include it in your file.
+
+[4mRunning "autoprefixer:dist" (autoprefixer) task[24m
+File .tmp/app/app.css created.
+
+[4mRunning "express:dev" (express) task[24m
+[36mStarting [39mbackground Express server
+debugger listening on port 5858
+info: socket.io started
+
+[4mRunning "wait" task[24m
+[32m>> [39mWaiting for server reload...
+Express server listening on 9876, in development mode
+info: handshake authorized fJ0-xdvLY87KdyO-pGXJ
+[221.147.143.5:60766] CONNECTED
+Done waiting!
+
+[4mRunning "watch" task[24m
+Waiting...
+[90mGET /memorial/53d203feea5e02da23d10848 [32m200 [90m14ms[0m
+[90mGET /api/users/me [36m304 [90m29ms[0m
+[90mPOST /auth/local [32m200 [90m67ms - 192b[0m
+[ { _id: 53d203feea5e02da23d10848,
+    admin_id: '53be61241582249e4fa7d21e',
+    name: '김영민',
+    date_of_birth: Fri Jul 18 2014 00:00:00 GMT+0900 (KST),
+    date_of_death: Thu Jul 24 2014 00:00:00 GMT+0900 (KST),
+    expires_at: Sat Jul 25 2015 16:15:10 GMT+0900 (KST),
+    __v: 0,
+    timeline: { created: false },
+    file: 
+     { location: 'local',
+       url: '/tmp/53be61241582249e4fa7d21e-1406272516871-jh2vh0s36rl2-10.png',
+       updated_at: Fri Jul 25 2014 16:15:10 GMT+0900 (KST) } } ]
+[90mGET /api/memorials/53be61241582249e4fa7d21e [36m304 [90m11ms[0m
+[90mGET /api/users/me [36m304 [90m4ms[0m
+[90mGET /tmp/53be61241582249e4fa7d21e-1406272516871-jh2vh0s36rl2-10.png [36m304 [90m1ms[0m
+[90mGET /%7B%7Bmemorial.file.url%7D%7D [36m304 [90m1ms[0m
+[90mGET /api/memorials/info/53d203feea5e02da23d10848 [36m304 [90m3ms[0m
+info: transport end (undefined)
+[221.147.143.5:60766] DISCONNECTED
+info: handshake authorized crN710uxH5_LPXYhpGXK
+[223.62.162.66:61963] CONNECTED
+[90mGET /api/memorials [33m404 [90m12ms[0m
+[90mPOST /auth/local [32m200 [90m65ms - 192b[0m
+[90mGET /api/users/me [32m200 [90m3ms - 118b[0m
+[ { _id: 53d203feea5e02da23d10848,
+    admin_id: '53be61241582249e4fa7d21e',
+    name: '김영민',
+    date_of_birth: Fri Jul 18 2014 00:00:00 GMT+0900 (KST),
+    date_of_death: Thu Jul 24 2014 00:00:00 GMT+0900 (KST),
+    expires_at: Sat Jul 25 2015 16:15:10 GMT+0900 (KST),
+    __v: 0,
+    timeline: { created: false },
+    file: 
+     { location: 'local',
+       url: '/tmp/53be61241582249e4fa7d21e-1406272516871-jh2vh0s36rl2-10.png',
+       updated_at: Fri Jul 25 2014 16:15:10 GMT+0900 (KST) } } ]
+[90mGET /api/memorials/53be61241582249e4fa7d21e [32m200 [90m7ms - 396b[0m
+[90mPOST /auth/local [32m200 [90m68ms - 192b[0m
+[90mGET /api/users/me [36m304 [90m5ms[0m
+[90mGET /tmp/53be61241582249e4fa7d21e-1406272516871-jh2vh0s36rl2-10.png [32m200 [90m555ms - 935.9kb[0m
+POST partly_done 53be61241582249e4fa7d21e-1406440135859-r7gdwp9e1a46l-1406440128341.jpg 53be61241582249e4fa7d21e-1406440135859-r7gdwp9e1a46l-1406440128341.jpg
+[90mPOST /api/fileuploads [32m200 [90m938ms - 2b[0m
+POST done 53be61241582249e4fa7d21e-1406440135859-r7gdwp9e1a46l-1406440128341.jpg 53be61241582249e4fa7d21e-1406440135859-r7gdwp9e1a46l-1406440128341.jpg
+[90mPOST /api/fileuploads [32m200 [90m1385ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406440135859-r7gdwp9e1a46l-1406440128341.jpg.1
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406440135859-r7gdwp9e1a46l-1406440128341.jpg.2
+[90mPOST /api/memorials [32m201 [90m17ms - 403b[0m
+[90mGET /%7B%7Bmemorial.file.url%7D%7D [32m200 [90m2ms[0m
+[90mGET /api/memorials/info/53d492c4f8bec2c23359705e [32m200 [90m1ms - 403b[0m
+[90mGET /tmp/53be61241582249e4fa7d21e-1406440135859-r7gdwp9e1a46l-1406440128341.jpg [32m200 [90m1711ms - 2.67mb[0m
+POST partly_done 53be61241582249e4fa7d21e-1406440166120-ti1iqtkdp19he-1406440159418.jpg 53be61241582249e4fa7d21e-1406440166120-ti1iqtkdp19he-1406440159418.jpg
+[90mPOST /api/fileuploads [32m200 [90m915ms - 2b[0m
+POST done 53be61241582249e4fa7d21e-1406440166120-ti1iqtkdp19he-1406440159418.jpg 53be61241582249e4fa7d21e-1406440166120-ti1iqtkdp19he-1406440159418.jpg
+[90mPOST /api/fileuploads [32m200 [90m1255ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406440166120-ti1iqtkdp19he-1406440159418.jpg.1
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406440166120-ti1iqtkdp19he-1406440159418.jpg.2
+POST partly_done 53be61241582249e4fa7d21e-1406440176443-5wwsx3pa8tqbm-1406440171034.jpg 53be61241582249e4fa7d21e-1406440176443-5wwsx3pa8tqbm-1406440171034.jpg
+[90mPOST /api/fileuploads [32m200 [90m926ms - 2b[0m
+POST done 53be61241582249e4fa7d21e-1406440176443-5wwsx3pa8tqbm-1406440171034.jpg 53be61241582249e4fa7d21e-1406440176443-5wwsx3pa8tqbm-1406440171034.jpg
+[90mPOST /api/fileuploads [32m200 [90m1345ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406440176443-5wwsx3pa8tqbm-1406440171034.jpg.1
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406440176443-5wwsx3pa8tqbm-1406440171034.jpg.2
+[90mGET /bower_components/doresol_timeline/build/css/loading@2x.gif?v3.4 [33m404 [90m2ms[0m
+[90mGET /tmp/53be61241582249e4fa7d21e-1406440176443-5wwsx3pa8tqbm-1406440171034.jpg [32m200 [90m1991ms - 2.82mb[0m
+[90mGET /tmp/53be61241582249e4fa7d21e-1406440166120-ti1iqtkdp19he-1406440159418.jpg [32m200 [90m6196ms - 2.78mb[0m
+info: transport end (socket end)
+[223.62.162.66:61963] DISCONNECTED
+info: handshake authorized 3pjpxdpOkTDtLIs4pGXL
+[66.249.80.15:63288] CONNECTED
+info: handshake authorized 676lReCRV9-fP-6kpGXM
+[66.249.80.15:49754] CONNECTED
+info: handshake authorized Q08oN7FSE0WRV8H5pGXN
+[66.249.80.15:41992] CONNECTED
+info: transport end (close timeout)
+[66.249.80.15:63288] DISCONNECTED
+info: transport end (close timeout)
+[66.249.80.15:49754] DISCONNECTED
+info: transport end (close timeout)
+[66.249.80.15:41992] DISCONNECTED
+info: handshake authorized e8mBMWl6a03M8iMRpGXO
+[112.169.176.14:53065] CONNECTED
+[90mPOST /auth/local [32m200 [90m70ms - 192b[0m
+[90mGET /api/memorials [33m404 [90m3ms[0m
+[90mGET /api/users/me [36m304 [90m5ms[0m
+POST done 53be61241582249e4fa7d21e-1406463842821-kl00sfxh3v50z-8.png 53be61241582249e4fa7d21e-1406463842821-kl00sfxh3v50z-8.png
+[90mPOST /api/fileuploads [32m200 [90m141ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463842821-kl00sfxh3v50z-8.png.1
+[90mPOST /api/memorials [32m201 [90m28ms - 394b[0m
+[90mGET /%7B%7Bmemorial.file.url%7D%7D [36m304 [90m1ms[0m
+[90mGET /api/memorials/info/53d4ef77f8bec2c23359705f [32m200 [90m2ms - 394b[0m
+[90mGET /tmp/53be61241582249e4fa7d21e-1406463842821-kl00sfxh3v50z-8.png [32m200 [90m89ms - 536.72kb[0m
+POST done 53be61241582249e4fa7d21e-1406463890045-69pfowb79hgmb-4.png 53be61241582249e4fa7d21e-1406463890045-69pfowb79hgmb-4.png
+[90mPOST /api/fileuploads [32m200 [90m286ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890045-69pfowb79hgmb-4.png.1
+POST done 53be61241582249e4fa7d21e-1406463890045-g72iigknq5ixu-5.png 53be61241582249e4fa7d21e-1406463890045-g72iigknq5ixu-5.png
+[90mPOST /api/fileuploads [32m200 [90m374ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890045-g72iigknq5ixu-5.png.1
+POST done 53be61241582249e4fa7d21e-1406463890044-gbfh14xftro1o-3.png 53be61241582249e4fa7d21e-1406463890044-gbfh14xftro1o-3.png
+[90mPOST /api/fileuploads [32m200 [90m422ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890044-gbfh14xftro1o-3.png.1
+POST done 53be61241582249e4fa7d21e-1406463890046-ciz6vcg1vqb05-6.png 53be61241582249e4fa7d21e-1406463890046-ciz6vcg1vqb05-6.png
+[90mPOST /api/fileuploads [32m200 [90m243ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890046-ciz6vcg1vqb05-6.png.1
+POST done 53be61241582249e4fa7d21e-1406463890046-ljiws7y28jmj9-7.png 53be61241582249e4fa7d21e-1406463890046-ljiws7y28jmj9-7.png
+[90mPOST /api/fileuploads [32m200 [90m243ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890046-ljiws7y28jmj9-7.png.1
+POST done 53be61241582249e4fa7d21e-1406463890047-8umrxs65m0qhy-10.png 53be61241582249e4fa7d21e-1406463890047-8umrxs65m0qhy-10.png
+[90mPOST /api/fileuploads [32m200 [90m284ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890047-8umrxs65m0qhy-10.png.1
+POST done 53be61241582249e4fa7d21e-1406463890046-rsbbhpi6gj1hs-8.png 53be61241582249e4fa7d21e-1406463890046-rsbbhpi6gj1hs-8.png
+[90mPOST /api/fileuploads [32m200 [90m543ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890046-rsbbhpi6gj1hs-8.png.1
+POST done 53be61241582249e4fa7d21e-1406463890047-yn4ul09wd9pph-9.png 53be61241582249e4fa7d21e-1406463890047-yn4ul09wd9pph-9.png
+[90mPOST /api/fileuploads [32m200 [90m602ms - 2b[0m
+POST done 53be61241582249e4fa7d21e-1406463890047-196rdcc2tiseb-11.png 53be61241582249e4fa7d21e-1406463890047-196rdcc2tiseb-11.png
+[90mPOST /api/fileuploads [32m200 [90m237ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890047-yn4ul09wd9pph-9.png.1
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890047-196rdcc2tiseb-11.png.1
+POST done 53be61241582249e4fa7d21e-1406463890047-n439zfus1x9u2-12.png 53be61241582249e4fa7d21e-1406463890047-n439zfus1x9u2-12.png
+[90mPOST /api/fileuploads [32m200 [90m316ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890047-n439zfus1x9u2-12.png.1
+POST done 53be61241582249e4fa7d21e-1406463890048-pkvs3glvqqnz5-13.png 53be61241582249e4fa7d21e-1406463890048-pkvs3glvqqnz5-13.png
+[90mPOST /api/fileuploads [32m200 [90m362ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890048-pkvs3glvqqnz5-13.png.1
+POST done 53be61241582249e4fa7d21e-1406463890048-mnqpidujxy7uj-14.png 53be61241582249e4fa7d21e-1406463890048-mnqpidujxy7uj-14.png
+[90mPOST /api/fileuploads [32m200 [90m396ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890048-mnqpidujxy7uj-14.png.1
+POST done 53be61241582249e4fa7d21e-1406463890048-3wcremgq5c6dp-15.png 53be61241582249e4fa7d21e-1406463890048-3wcremgq5c6dp-15.png
+[90mPOST /api/fileuploads [32m200 [90m406ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890048-3wcremgq5c6dp-15.png.1
+POST done 53be61241582249e4fa7d21e-1406463890048-errqyn4wz3hm2-16.png 53be61241582249e4fa7d21e-1406463890048-errqyn4wz3hm2-16.png
+[90mPOST /api/fileuploads [32m200 [90m260ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890048-errqyn4wz3hm2-16.png.1
+POST done 53be61241582249e4fa7d21e-1406463890049-39wkulrpdypkf-17.png 53be61241582249e4fa7d21e-1406463890049-39wkulrpdypkf-17.png
+[90mPOST /api/fileuploads [32m200 [90m255ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406463890049-39wkulrpdypkf-17.png.1
+info: transport end (undefined)
+[112.169.176.14:53065] DISCONNECTED
+info: handshake authorized ozEDS-bNhNZhdp8npGXP
+[112.169.176.14:53793] CONNECTED
+info: transport end (undefined)
+[112.169.176.14:53793] DISCONNECTED
+info: handshake authorized 7q4be2rr678yp6yNpGXQ
+[112.169.176.14:53793] CONNECTED
+info: transport end (socket end)
+[112.169.176.14:53793] DISCONNECTED
+info: handshake authorized zsv9GKyw4dIpUCzepGXR
+[223.62.212.68:13644] CONNECTED
+[90mPOST /auth/local [32m200 [90m65ms - 192b[0m
+[90mGET /api/memorials [33m404 [90m3ms[0m
+[90mGET /api/users/me [36m304 [90m3ms[0m
+POST partly_done 53be61241582249e4fa7d21e-1406508934492-ij9e8drdzq1wn-1406508927863.jpg 53be61241582249e4fa7d21e-1406508934492-ij9e8drdzq1wn-1406508927863.jpg
+[90mPOST /api/fileuploads [32m200 [90m1993ms - 2b[0m
+POST done 53be61241582249e4fa7d21e-1406508934492-ij9e8drdzq1wn-1406508927863.jpg 53be61241582249e4fa7d21e-1406508934492-ij9e8drdzq1wn-1406508927863.jpg
+[90mPOST /api/fileuploads [32m200 [90m2305ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406508934492-ij9e8drdzq1wn-1406508927863.jpg.1
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406508934492-ij9e8drdzq1wn-1406508927863.jpg.2
+[90mPOST /api/memorials [32m201 [90m20ms - 403b[0m
+[90mGET /%7B%7Bmemorial.file.url%7D%7D [36m304 [90m1ms[0m
+[90mGET /api/memorials/info/53d59f7ff8bec2c233597060 [32m200 [90m3ms - 403b[0m
+[90mGET /tmp/53be61241582249e4fa7d21e-1406508934492-ij9e8drdzq1wn-1406508927863.jpg [32m200 [90m2497ms - 2.71mb[0m
+POST partly_done 53be61241582249e4fa7d21e-1406508964285-6dp4owzlyd2hu-1406508955845.jpg 53be61241582249e4fa7d21e-1406508964285-6dp4owzlyd2hu-1406508955845.jpg
+[90mPOST /api/fileuploads [32m200 [90m2618ms - 2b[0m
+POST done 53be61241582249e4fa7d21e-1406508964285-6dp4owzlyd2hu-1406508955845.jpg 53be61241582249e4fa7d21e-1406508964285-6dp4owzlyd2hu-1406508955845.jpg
+[90mPOST /api/fileuploads [32m200 [90m3315ms - 2b[0m
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406508964285-6dp4owzlyd2hu-1406508955845.jpg.1
+exist removing  /var/www/doresol_app/tmp/53be61241582249e4fa7d21e-1406508964285-6dp4owzlyd2hu-1406508955845.jpg.2
+info: transport end (socket end)
+[223.62.212.68:13644] DISCONNECTED
+[90mGET /memorial/53d59f7ff8bec2c233597060 [32m200 [90m2ms[0m

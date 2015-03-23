@@ -1,0 +1,89 @@
+<div flow-init="{
+       singleFile: true, 
+       target:'/api/fileuploads', 
+       testChunks: false,
+       generateUniqueIdentifier: getFlowFileUniqueId
+     }"
+     flow-file-added="fileUploading=true"
+     flow-files-submitted="$flow.upload()"
+     ng-controller="SettingsCtrl"
+     >
+
+  <div ng-include="'components/navbar/navbar.html'"></div>
+  <div class="alert alert-info alert-dismissable" style="padding-top:60px;" ng-if="isMobile">
+    <h4><i class="fa fa-info-circle"></i> Info</h4> 모바일 웹에서는 프로필 사진을 변경 할 수 없습니다. 사진 변경을 원하시는 분은 PC로 접속해 주시길 바랍니다.
+  </div>
+  <div class="container contents" flow-prevent-drop>  
+    <div class="col-lg-2">
+      <form name="settingForm" ng-submit="changeProfile(settingForm)" novalidate>
+        <div class="form-group text-center">
+          <img ng-show="$flow.files[0]" flow-img="$flow.files[0]" class="img-responsive"/>
+          <img ng-show="!$flow.files[0]" ng-src="{{currentUser.profile.file.url}}" class="img-responsive"/>
+          <div class="profile-img-upload-btn" ng-if="!isMobile">
+            <span class="pull-left">&nbsp;</span>
+            <span class="fa-stack fa-lg pull-left" flow-btn flow-attrs="{accept:'image/*'}" style="cursor:pointer;">
+              <i class="fa fa-circle fa-stack-2x text-success"></i>
+              <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+            </span>
+          </div>    
+        </div>
+
+        <div class="form-group">
+          <label for="name" style="position: relative;left: -35px;">닉네임</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="닉네임을 입력하세요" ng-model="currentUser.profile.name" ng-required="true">
+        </div>
+        <div class="alert alert-danger" role="alert"
+             ng-show="settingForm.name.$dirty && settingForm.name.$invalid">
+           <span ng-show="settingForm.name.$error.required">닉네임을 입력해 주세요.</span>
+        </div>
+        <p class="help-block"> {{ profileMessage }} </p>
+        <button type="submit" class="btn btn-block btn-success" ng-disabled="fileUploading||settingForm.$invalid">저장</button>   
+      </form>
+    </div>
+    <br/><br/>
+
+    <div class="col-lg-10">
+      <div class="block-section">
+        <div class="block-title">
+            <h2><strong>기본정보</strong></h2>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-success">가입일: {{currentUser.created_at}}</li>
+        </ul>
+        
+      </div>
+      <br/>
+      <div class="block-section" ng-if="(currentUser.uid.indexOf('simplelogin') > -1)">
+        <div class="block-title">
+            <h2><strong>암호 변경</strong></h2>
+        </div>
+        <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+          <div class="input-group">
+            <span class="input-group-addon">변경 전 암호</span>
+            <input type="password" name="password" class="form-control" ng-model="password.oldPassword"
+                 firebase-error/>
+            <p class="help-block" ng-show="form.password.$error.firebase">
+                {{ errors.other }}
+            </p>
+          </div>
+          <br/>
+
+          <div class="input-group">
+            <span class="input-group-addon">변경 할 암호</span>
+            <input type="password" name="newPassword" class="form-control" ng-model="password.newPassword"
+                 ng-minlength="3"
+                 required/>
+            <p class="help-block"
+               ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
+              암호는 3글자 이상이여야 합니다.
+            </p>
+          </div>
+          <p class="help-block"> {{ passwordMessage }} </p>
+
+          <button type="submit" class="btn btn-lg btn-success">저장</button> 
+        </form>
+      </div>
+    </div>
+  </div>
+</div>  
+<div ng-include="'components/footer/footer.html'"></div>

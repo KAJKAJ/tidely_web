@@ -1,0 +1,88 @@
+<br/>
+<div ng-show="selectedEraKey">
+    <div class="well">
+      <form name="eraForm" ng-submit="submitEra(eraForm)" novalidate>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon">이름</span>
+                <input type="text" class="unique-era form-control" name="headline" placeholder="유년시절,학창시절,신혼생활 등" ng-required="true" ng-model="selectedEra.headline" ng-change="selectedEraHeadlineChange()">
+            </div>
+            <div class="alert alert-danger" role="alert"
+                 ng-show="eraForm.headline.$dirty && eraForm.headline.$invalid">
+                 <span ng-show="eraForm.headline.$error.required">추억의 시절 이름을 입력해 주세요.</span>
+                 <span ng-show="eraForm.headline.$error.duplicated">중복된 이름입니다.</span>
+            </div>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon">시작</span>
+                <input type="text" class="form-control" name="eraStartDate" placeholder="기간 시작" 
+                is-open="dateOfEraStart" datepicker-popup="yyyy-MM-dd" max-date="selectedEra.endDate"
+                ng-required="true" ng-model="selectedEra.startDate"/>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="openDatepicker($event,'dateOfEraStart')"><i class="glyphicon glyphicon-calendar text-success"></i></button>
+                </span>
+            </div>
+            <div class="alert alert-danger" role="alert"
+               ng-show="eraForm.dateOfStart.$dirty && eraForm.dateOfStart.$invalid">
+               <span ng-show="!eraForm.dateOfStart.$error.date&&eraForm.dateOfStart.$error.required">시작 날짜를 입력해 주세요.</span>
+               <span ng-show="eraForm.dateOfStart.$error.date">정확한 날짜 형식이 아닙니다.</span>
+            </div>
+            </div>
+          <div class="col-sm-1"></div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon">종료</span>
+                <input type="text" class="form-control" name="eraEndDate" placeholder="기간 종료" 
+                is-open="dateOfEraEnd" datepicker-popup="yyyy-MM-dd" max-date="today" min-date="selectedEra.startDate"
+                ng-required="true" ng-model="selectedEra.endDate"/>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="openDatepicker($event,'dateOfEraEnd')"><i class="glyphicon glyphicon-calendar text-success"></i></button>
+                </span>
+            </div>
+            <div class="alert alert-danger" role="alert"
+               ng-show="eraForm.dateOfEnd.$dirty && eraForm.dateOfEnd.$invalid">
+               <span ng-show="!eraForm.dateOfEnd.$error.date&&eraForm.dateOfEnd.$error.required">종료 날짜를 입력해 주세요.</span>
+               <span ng-show="eraForm.dateOfEnd.$error.date">정확한 날짜 형식이 아닙니다.</span>
+            </div>
+            <div class="alert alert-danger" role="alert"
+                 ng-show="eraForm.headline.$valid && eraForm.dateOfStart.$valid &&  eraForm.dateOfEnd.$valid && eraForm.$valid == false">          
+               <span>기간 설정이 잘못되었습니다.</span>
+            </div>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+        <br/>
+
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <span ng-show="selectedEraKey != 'tempKey'">
+              <button type="button" class="btn btn-alt btn-danger pull-right" ng-click="removeSelectedEra(selectedEraKey)">삭제</button>
+              <span class="pull-right">&nbsp;</span>
+              <button type="submit" class="btn btn-alt btn-success pull-right" ng-disabled="eraForm.$invalid">변경</button>
+            </span>
+            <span ng-show="selectedEraKey == 'tempKey'">
+              <button type="submit" class="btn btn-alt btn-success pull-right" ng-disabled="eraForm.$invalid">추가</button>
+            </span>
+            </div>
+          <div class="col-sm-1"></div>
+        </div>
+        
+     </form>
+    </div>
+  <div ng-include="'app/memorial/timeline/story_upload.html'" ng-show="getSelectedEraKey() != 'tempKey'"></div>
+</div>
+
+

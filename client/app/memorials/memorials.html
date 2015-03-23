@@ -1,0 +1,124 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="alert alert-info alert-dismissable" style="padding-top:60px;" ng-if="isMobile">
+  <h4><i class="fa fa-info-circle"></i> Info</h4> 모바일 웹에서는 새로운 메모리얼을 생성 할 수 없습니다. 새로운 메모리얼을 생성하길 원하시는 분은 PC로 접속해 주시길 바랍니다.
+</div>
+
+<div class="container contents">	
+	<div class="block-section">
+    <div class="block-title">
+        <h2><strong>가입한 메모리얼</strong></h2>
+    </div>
+		<div masonry item-selector=".brick-memorials" preserve-order>
+			<div class="brick-memorials col-md-3 col-sm-6 col-xs-12" style="padding-bottom:20px;">
+				<span ng-show="!isMobile">
+					<div class="brick-memorial-wrapper" ui-sref="memorial_create">
+						<div class="text-center" style="height:300px;border: 2px #1cc41c dashed;" tooltip-placement="top" tooltip="새로 만들기">
+							<span class="memorial-plus-btn text-success"><i class="fa fa-plus-circle fa-4x"></i></span>
+						</div>
+					</div>
+				</span>
+			</div>
+		  <div masonry-brick class="brick-memorials col-md-3 col-sm-6 col-xs-12" ng-repeat="(key, memorial) in myMemorials">
+		  	<div class="brick-memorial-wrapper">
+	      	<!-- <div class="ribbon-wrapper"><div class="ribbon-green">NEWS</div></div> -->
+
+          <div class="memorial-img" ng-if="!isMobile">
+  					<a ui-sref="memorial.storymap({id:memorial.$id})"><img ng-src="{{memorial.file.url}}" class="img-responsive"/>
+    					<div class="overlay">
+       					<i class="fa fa-5x fa-play"></i>
+    					</div>
+  					</a>
+  					<span class="memorial-header">
+	  					<span class="btn-public">
+		  					<i ng-if="memorial.public" class="fa fa-2x fa-unlock" tooltip-placement="top" tooltip="공개"></i>
+		            <i ng-if="!memorial.public" class="fa fa-2x fa-lock" tooltip-placement="top" tooltip="비공개"></i>
+	            </span>
+	  					<span class="btn-owner">
+	              <i ng-if="memorial.ref_user == user.uid" class="fa fa-2x fa-heart" tooltip-placement="top" tooltip="Owner"></i>
+	              <i ng-if="memorial.ref_user != user.uid" class="fa fa-2x fa-star" tooltip-placement="top" tooltip="Member"></i>
+	            </span>
+            </span>
+  				</div>
+  				<div class="memorial-img" ng-if="isMobile">
+  					<a ui-sref="memorial.storyline({id:memorial.$id})"><img ng-src="{{memorial.file.url}}" class="img-responsive"/>
+  					</a>
+  				</div>
+	      	<div class="row text-center">
+		    		<h3><strong>{{memorial.name}}</strong></h3>
+		    		<!-- <span ng-if="memorial.ref_user == user.uid"><i class="fa fa-heart fa-2x text-danger" tooltip-placement="left" tooltip="Owner"></i></span>
+		    		<span ng-if="memorial.ref_user != user.uid" style="color:rgb(255, 215, 0);"><i class="fa fa-2x fa-star" tooltip-placement="left" tooltip="Member"></i></span> -->
+		    	</div>
+		    	<div class="row text-center">
+			      <div class="col-xs-4">
+		          <h3 class="widget-content-light">
+	              <a ui-sref="memorial.storymap({id:key})" ng-if="!isMobile"><strong>{{memorial.count_timeline}}</strong><br></a>
+	              <a ui-sref="memorial.storyline({id:key})" ng-if="isMobile"><strong>{{memorial.count_timeline}}</strong><br></a>
+	              <small>스토리</small>
+		          </h3>
+			      </div>
+			      <div class="col-xs-4">
+		          <h3 class="widget-content-light">
+	              <a ui-sref="memorial.storyline({id:key})" ng-if="!isMobile"><strong>{{memorial.count_storyline}}</strong><br></a>
+	              <a ui-sref="memorial.storyline({id:key})" ng-if="isMobile"><strong>{{memorial.count_storyline}}</strong><br></a>
+	              <small>방명록</small>
+		          </h3>
+			      </div>
+			      <div class="col-xs-4">
+		          <h3 class="widget-content-light">
+	              <a ui-sref="memorial.member({id:key})" ng-if="!isMobile"><strong>{{memorial.count_member}}</strong><br></a>
+	              <a ui-sref="memorial.storyline({id:key})" ng-if="isMobile"><strong>{{memorial.count_member}}</strong><br></a>
+	              <small>멤버</small>
+		          </h3>
+			      </div>
+				  </div>
+				</div>​
+		  </div>
+		</div>
+		<br/>
+	</div>
+	<div class="block-section">
+    <div class="block-title">
+        <h2><strong>가입승인 대기중</strong></h2>
+    </div>
+    <div ng-if="isEmptyObject(myWaitingMemorials)">
+      <div class="alert alert-success">
+       <h4><i class="fa fa-check-circle"></i> 가입승인 대기중인 메모리얼이 없습니다.</h4>
+      </div>
+    </div>
+		<div ng-if="!isEmptyObject(myWaitingMemorials)" masonry item-selector=".brick-waitings" preserve-order>
+			<div masonry-brick class="brick-waitings col-md-3" ng-repeat="(key, memorial) in myWaitingMemorials">
+	  		<div class="well">
+	    		<a ui-sref="memorial.storymap({id:key})" ng-if="!isMobile"><img ng-src="{{memorial.file.url}}" class="img-responsive"/></a>
+	    		<a ui-sref="memorial.storyline({id:key})" ng-if="isMobile"><img ng-src="{{memorial.file.url}}" class="img-responsive"/></a>
+		    	<div class="row text-center">
+		    		<h3><strong>{{memorial.name}}</strong></h3>
+		    	</div>
+		    	<div class="row text-center">
+			      <div class="col-xs-4">
+		          <h3 class="widget-content-light">
+		          	<a ui-sref="memorial.storymap({id:key})" ng-if="!isMobile"><strong>{{memorial.count_timeline}}</strong><br></a>
+	              <a ui-sref="memorial.storyline({id:key})" ng-if="isMobile"><strong>{{memorial.count_timeline}}</strong><br></a>
+	              <small>스토리</small>
+		          </h3>
+			      </div>
+			      <div class="col-xs-4">
+		          <h3 class="widget-content-light">
+	              <a ui-sref="memorial.storyline({id:key})" ng-if="!isMobile"><strong>{{memorial.count_storyline}}</strong><br></a>
+	              <a ui-sref="memorial.storyline({id:key})" ng-if="isMobile"><strong>{{memorial.count_storyline}}</strong><br></a>
+	              <small>방명록</small>
+		          </h3>
+			      </div>
+			      <div class="col-xs-4">
+		          <h3 class="widget-content-light">
+	              <a ui-sref="memorial.member({id:key})" ng-if="!isMobile"><strong>{{memorial.count_member}}</strong><br></a>
+	              <a ui-sref="memorial.storyline({id:key})" ng-if="isMobile"><strong>{{memorial.count_member}}</strong><br></a>
+	              <small>멤버</small>
+		          </h3>
+			      </div>
+				  </div>
+			  </div>
+		  </div>
+		</div>
+	</div>
+</div>
+<div ng-include="'components/footer/footer.html'"></div>

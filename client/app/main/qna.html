@@ -1,0 +1,296 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="qna">
+     <div style="margin:20px 0px 100px 0px;">
+      <span style="font-size:20px;">
+        <div class="col-xs-6" style="vertical-align:middle;">
+          <a href="http://www.facebook.com/doresol.net" target="_blank"><i class="fa fa-facebook-square fa-2x"></i> <span style="position:relative;top:-6px;">http://www.facebook.com/doresol.net</span></a>
+        </div>
+        <div class="col-xs-6">
+          <a><i class="fa fa-envelope fa-2x"></i></a> <span style="position:relative;top:-6px;">doresol@hummingtop.co.kr</span>
+        </div>
+      </span>
+    </div>
+      
+  <ul class="nav nav-tabs nav-justified" role="tablist">
+    <!-- <li ng-click="changeQnaTab('send_photo')" ng-class="{active: qnaTab == 'send_photo'}"><a><i class="fa fa-camera"></i> 사진을 보내주세요</a></li> -->
+    <li ng-click="changeQnaTab('origin')" ng-class="{active: qnaTab == 'origin'}"><a><i class="fa fa-tree"></i> 도래솔 서비스 시작 계기</a></li>
+    <li ng-click="changeQnaTab('faq')" ng-class="{active: qnaTab == 'faq'}"><a><i class="fa fa-lightbulb-o"></i> 자주묻는 질문</a></li>
+    <li ng-click="changeQnaTab('qna')" ng-class="{active: qnaTab == 'qna'}"><a><i class="fa fa-question-circle"></i> QnA</a></li>
+  </ul>
+
+  <div ng-if="qnaTab=='send_photo'">
+    <div class="qna-content">
+      <div class="tab-pane active" id="pt-grid-based">
+        <h3>고객님의 인화된 사진을 보내주세요.</h3>
+        <p>사진파일이 없어서 고민이신가요? 다 앨범으로만 있음? 고민 노노..택배로 보내셈..우리가 알아서 함. 올리고 메일드림.</p>
+        <!-- Alternative Style -->
+        <div class="row">
+          <div class="col-sm-3">
+            <table class="table table-borderless table-pricing">
+              <thead>
+                <tr>
+                  <th>1. 사진 보내기</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                 <td>
+                   <p>업로드 하고 싶은 사진들을 모아서 도래솔로 택배를 보내주세요. 사진과 관련된 추억이나 장소등을 같이 적어주시면 더욱 풍성한 자료가 업로드 될 수 있습니다.</p>
+                 </td>
+                </tr>
+                <tr>
+                  <td class="table-price">
+                    <h1><i class="fa fa-truck fa-2x"></i></h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)" class="btn btn-success">보내실 곳</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-3">
+            <table class="table table-borderless table-pricing table-featured">
+              <thead>
+                <tr>
+                  <th>2. 디지털 사진 제작</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                 <td>
+                   <br/>
+                   <p>고객님께서 보내주신 사진들을 스캔 및 보정 작업을 통해 HD급의 디지털 사진을 제작합니다. 또한 해당 사진들을 담은 DVD를 제작합니다.</p>
+                 </td>
+                </tr>
+                <tr>
+                  <td class="table-price">
+                    <h1><i class="fa fa-picture-o fa-2x"></i></h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)" class="btn btn-success">가격</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-3">
+            <table class="table table-borderless table-pricing table-featured">
+              <thead>
+                <tr>
+                  <th>3. 메모리얼 생성</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                 <td>
+                   <br/>
+                   <p>디지털 사진으로 고인의 메모리얼을 생성합니다. 사진과 함께 보내주신 자료를 바탕으로 시간 순, 장소 순으로 사진을 정리하여 드립니다.</p>
+                 </td>
+                </tr>
+                <tr>
+                  <td class="table-price">
+                    <h1><i class="fa fa-cloud-upload fa-2x"></i></h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)" class="btn btn-success">보내실 곳</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-3">
+            <table class="table table-borderless table-pricing">
+              <thead>
+                <tr>
+                  <th>4. 사진 돌려드리기</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                 <td>
+                   <br/>
+                   <p>메모리얼이 생성이 되고 난 후, 고객님 댁으로 보내주신 사진들과 디지털 사진을 담은 DVD를 안전하게 돌려드립니다.</p>
+                 </td>
+                </tr>
+                <tr>
+                  <td class="table-price">
+                    <h1><i class="fa fa-book fa-2x"></i></h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)" class="btn btn-success">보내실 곳</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div ng-if="qnaTab=='origin'">
+    <div class="qna-content">
+      <div class="row">
+        <div class="col-md-5">
+            <img src="/assets/images/fishing.jpg" class="img-responsive">
+        </div>
+        <div class="col-md-7" style="font-size:23px;"><br>
+          <blockquote>
+            졸업식때면 의례 받았던 꽃다발이 어떻게 생겼는지 기억하지 못합니다.
+            생각하는 꽃에 대한 기억은 초등학교 3학년로 거슬러 올라갑니다.
+            당시 아버지는 나를 자전거에 태우고 어느 강으로 낚시를 하러 갔었습니다.
+            변변한 낚시대라곤 없었으나, 부자간 같이 할 수 있는 놀이로 그만한 것도 없었죠.
+            정확히 어느 강이었었는지, 물고기를 잡긴했었던 건진 기억나지 않습니다.
+          </blockquote>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8" style="font-size:23px;"><br>
+          <blockquote>
+          하지만 지금도 명확히 기억하는건 돌아오는 길에서의 일이었습니다.<br>
+          아버지는 돌아오는 길에 길가에 자전거를 세우시곤 길둑으로 걸아가셔선 진달래를 한웅큼 꺾어 오셔선 나에게 건네셨죠. <br>
+          좀 뜻밖의 상황이라 진달래를 쥐고 자전거 뒤에 앉아서 집으로 오는 내내 설레는 마음을 가졌었습니다.<br>
+          자상하셨으나 겉으로 들어내는 법이 없으셨던 아버지의 온기를 느낄 수 있어서 지금도 아련하게나마 기억하고 있는 추억이지 싶네요.<br><br>
+          </blockquote>
+        </div>        
+        <div class="col-md-4">
+          <img src="/assets/images/qna_overview_2.png" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <img src="/assets/images/qna_overview.png" class="img-responsive">
+        </div>
+        <div class="col-md-7" style="font-size:23px;"><br>
+          <blockquote>
+          아버지는 이젠 곁을 떠나셨고, 시간이 지나면서 이런 추억들은 자연스레 희미해져가더군요.
+          빛바랜 아버지의 사진들은 고향집 옷장에 묻혀 있었고, 명절 때가 아니면 함께했던 기억들을 얘기할 기회는 점점 없어졌습니다.
+          전 그런 추억들을 정리해두는 서비스가 있으면 어떨까 하고 생각하게 되었습니다.
+          </blockquote>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7" style="font-size:23px;"><br>
+          <blockquote>
+          비슷한 경험을 가진 다른 분들에게도 도움이 될 수 있을거라고 생각하면서요.
+
+          내 아이들에게도 할아버지의 모습과 이야기들을 들려줄 수 있지 않을까요?<br><br>
+
+          여러분들은 어떠신가요?<br><br>
+
+          서비스는 이제 시작이지만, 열심히 만들어가도록 하겠습니다.<br>
+
+          감사합니다.
+          </blockquote>
+        </div>
+        <div class="col-md-5">
+          <img src="/assets/images/qna_overview_3.png" class="img-responsive">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <div ng-if="qnaTab=='faq'">
+    <div class="qna-content">
+      <h4 class="sub-header"><strong>회원가입</strong></h4>
+      <accordion>
+        <accordion-group is-open="faq_status_1.open">
+          <accordion-heading>
+            > 가입은 어떻게 하나요? <i class="pull-right fa" ng-class="{'fa-minus-square': faq_status_1.open, 'fa-plus-square': !faq_status_1.open}"></i>
+          </accordion-heading>
+          이메일로 가입하시거나, 기존 페이스북 계정이 있으신 분들은 페이스북 계정으로 이용가능하십니다.
+          추후 카카오톡, 네이버 아이디로 로그인 가능하도록 수정해나갈 것입니다.
+        </accordion-group>
+      </accordion>
+
+      <h4 class="sub-header"><strong>공개/비공개</strong></h4>
+      <accordion>
+        <accordion-group is-open="faq_status_1.open">
+          <accordion-heading>
+            > 공개란 무엇인가요? <i class="pull-right fa" ng-class="{'fa-minus-square': faq_status_1.open, 'fa-plus-square': !faq_status_1.open}"></i>
+          </accordion-heading>
+          공개로 설정된 메모리얼의 경우, 누구나 들어가서 가입 후 해당 메모리얼 정보를 보고 글 등을 남길 수 있습니다.
+        </accordion-group>
+        <accordion-group is-open="faq_status_2.open">
+          <accordion-heading>
+            > 비공개란 무엇인가요? <i class="pull-right fa" ng-class="{'fa-minus-square': faq_status_2.open, 'fa-plus-square': !faq_status_2.open}"></i>
+          </accordion-heading>
+          비공개로 설정된 메모리얼의 경우, 해당 메모리얼을 생성한 관리자의 승인이 있을 경우에 한해 해당 메모리얼의 정보를 보고 글 등을 게시할 수 있습니다.
+        </accordion-group>
+      </accordion>
+
+      <h4 class="sub-header"><strong>보안</strong></h4>
+      <accordion>
+        <accordion-group is-open="faq_status_1.open">
+          <accordion-heading>
+            > 업로드된 정보는 외부 해킹으로부터 안전한가요? <i class="pull-right fa" ng-class="{'fa-minus-square': faq_status_1.open, 'fa-plus-square': !faq_status_1.open}"></i>
+          </accordion-heading>
+          비공개로 정의시 지정된 멤버에 한해서만 해당 정보를 열람할 수 있습니다.
+          또한 저장된 정보는 클라우드 서버에 안전하게 보관되어 있으며, 혹시 모를 향후 분실을 대비해서 백업됩니다.
+        </accordion-group>
+      </accordion>
+
+    </div>
+  </div>
+
+  <div ng-if="qnaTab=='qna'">
+    <div class="qna-content">
+      <div class="table-responsive">
+        <table class="table table-hover table-vcenter">
+          <thead>
+            <tr>
+              <td colspan="4">
+                <form  name="newQnaForm" class="block-content-full block-content-mini-padding" ng-submit="createNewQna(newQnaForm)" novalidate>
+                  <textarea class="form-control" ng-model="newQna.text" rows="5" placeholder="문의하실 내용을 적어주세요.." style="resize: none;margin: 1px 0px 10px;" ng-required="true"/>
+                  <div class="clearfix">
+                    <button type="submit" class="btn btn-sm btn-success pull-right" ng-disabled="newQnaForm.$invalid"><i class="fa fa-pencil"></i> 문의하기</button>
+                  </div>
+                </form>
+                <div>{{qnaMessage}}</div>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="qna in qnaArray">
+              <td style="width: 20%;"><img src="{{users[qna.ref_user].profile.file.url}}" style="width:32px;height:32px;"/> {{users[qna.ref_user].profile.name}}</td>
+              <td>
+                <a ng-click="openModal(qna)">{{qna.text|limitTo:100}}...</a>
+              </td>
+              <td><span class="badge">{{replyCnt[qna.$id]}}</span></td>
+              <td class="text-right" style="width: 200px;"><em>{{qna.fromNow}}</em></td>
+            </tr>
+            <!-- <tr>
+              <td class="text-right" colspan="3">
+                <strong>1-30</strong> from <strong>5250</strong>
+                <div class="btn-group btn-group-sm">
+                  <a class="btn btn-sm btn-default" ng-click="fetchQnaPrev()"><i class="fa fa-angle-left"></i></a>
+                  <a class="btn btn-sm btn-default" ng-click="fetchQnaMore()"><i class="fa fa-angle-right"></i></a>
+                </div>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+
+        <ul class="pager" ng-if="qnaArray.length > 0">
+          <li class="previous"><a  ng-click="fetchQnaPrev()">이전</a></li>
+          <li class="next"><a ng-click="fetchQnaMore()">다음</a></li>
+        </ul>
+                                
+    </div>
+    </div>
+  </div>
+</div>
+<br/>
+<div></div>
+<div ng-include="'components/footer/footer.html'"></div>

@@ -1,0 +1,36 @@
+<div flow-init="{
+			 singleFile: false,
+			 target:'/api/fileuploads', 
+			 testChunks: false,
+			 generateUniqueIdentifier: getFlowFileUniqueId,
+			 simultaneousUploads: 3
+			}"
+
+      flow-prevent-drop
+      flow-drag-enter="style={border: '5px solid green'}"
+      flow-drag-leave="style={}"
+		
+      flow-files-added="flowFilesAdded($files)"
+	  	flow-files-submitted="$flow.upload()"
+	 	  
+      ng-style="style">
+
+	  <div class="drop" flow-drop="" ng-class="dropClass" style="text-align:center;">
+	  	<span class="text-muted" style="font-size:25px;">사진 파일을 여기로 드래그 합니다.</span><br>
+	  	<b>또는</b><br>
+	    <span class="btn btn-lg btn-success" flow-attrs="{accept:['image/*']}" flow-btn=""> 컴퓨터에서 사진 파일 선택 <input type="file" multiple="multiple" style="visibility: hidden; position: absolute;"></span>
+	    
+	    
+	  </div>
+	  <br>
+	  <button type="button" class="btn btn-block btn-primary btn-alt" ng-show="isChanged" ng-click="uploadStory()">변경사항 저장</button>
+		<br/>
+	  <div class="row">
+		   <div ui-sortable="sortableOptions" class="superbox col-sm-12" ng-model="storiesArray['timeline']">
+			  	<div ng-repeat="storyKey in storiesArray['timeline']" class="superbox-list" story="storiesObject['timeline'][storyKey]" story-key="storyKey" ng-class="{active:$root.superboxToggled == storyKey,new:storiesObject['timeline'][storyKey].newStory}" remove-selected-story="removeSelectedStory(storyKey)" save-story="saveStory(storyKey)" save-message="saveMessage"></div>
+    	</div>
+  	</div> 
+</div>
+
+
+

@@ -1,0 +1,45 @@
+<div flow-init>
+  <!-- story name, image , story description, story start date, location(?) --> 
+  <div class="modal-header">
+    <img ng-src="{{parent.users[parent.qna.ref_user].profile.file.url}}" style="width:32px;height:32px;"/> <a>{{parent.users[parent.qna.ref_user].profile.name}}</a>   
+    <span class="pull-right"><em>{{parent.qna.fromNow}}</em></span>
+  </div>
+  <div class="modal-body">
+    <!-- question -->
+    {{parent.qna.text}}
+    <hr/>
+    <!-- reply -->
+    <ul class="comment-list media-list">
+      <li class="comment" ng-repeat="(replyKey, reply) in parent.replyObject[parent.qna.$id]" >
+        <div ng-if="reply.ref_user" class="comment-avatar">
+          <img ng-src="{{parent.users[reply.ref_user].profile.file.url}}" style="width:32px;height:32px;"/>
+        </div>
+        <div class="comment-body story-comment">
+            <strong class="comment-user-id">{{parent.users[reply.ref_user].profile.name}}</strong>
+            <span class="text-muted text-small"><em>{{reply.fromNow}}</em></span>
+            <span ng-if="reply.ref_user == currentUser.uid">
+              <i class="fa fa-times-circle text-danger" ng-click="deleteReply(parent.qna.$id, replyKey)"></i><p>{{reply.body}}</p>
+            </span>
+            <p ng-if="reply.ref_user != currentUser.uid">{{reply.body}}</p>
+        </div>
+      </li>
+
+      <!-- new reply -->
+      <li ng-if="currentUser" class="comment">
+        <div class="comment-avatar">
+          <img ng-src="{{currentUser.profile.file.url}}" style="width:32px;height:32px;"/>
+        </div>
+        <div class="comment-body">
+          <strong class="comment-user-id">{{currentUser.profile.name}}</strong>
+          <form name="commentForm" ng-submit="addReply(parent.qna.$id,newReply)" novalidate style="padding-right:30px;">
+            <textarea class="form-control" ng-model="newReply.body" placeholder="댓글을 입력하세요.." rows="2" style="resize: vertical;"/>
+            <button type="submit" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i>댓글 저장</button>
+          </form>            
+        </div>
+      </li>        
+    </ul>
+  </div> 
+  <div class="modal-footer">
+    <button class="btn btn-success" ng-click="cancel()">닫기</button>
+  </div>
+</div>

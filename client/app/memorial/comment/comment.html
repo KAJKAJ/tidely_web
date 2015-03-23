@@ -1,0 +1,42 @@
+<!-- comment -->
+<div class="row">
+  <div class="col-sm-7">
+    <img ng-src='{{story.file.url}}' class="img-responsive">
+  </div>
+  <div class="col-sm-5">
+    <ul class="comment-list media-list">
+      <li ng-if="!isGuest" class="comment">
+          <div class="comment-avatar">
+            <img ng-src="{{currentUser.profile.file.url}}" style="width:32px;height:32px;"/>
+          </div>
+          <div class="comment-body">
+            <strong class="comment-user-id">{{currentUser.profile.name}}</strong>
+            <form name="commentForm" ng-submit="addComment(storyKey,newComment)" novalidate style="padding-right:30px;">
+              <textarea class="form-control" ng-model="newComment.body" placeholder="댓글을 입력하세요.." rows="2" style="resize: vertical;"/>
+              <button type="submit" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i>댓글 저장</button>
+            </form>            
+          </div>
+      </li>        
+      
+      <li class="comment" ng-repeat="(commentKey, comment) in commentsObject[storyKey]" >
+      		<div ng-if="comment.ref_user" class="comment-avatar">
+            <img ng-src="{{users[comment.ref_user].profile.file.url}}" style="width:32px;height:32px;"/>
+          </div>
+          <div class="comment-body story-comment">
+              <strong class="comment-user-id">{{users[comment.ref_user].profile.name}}</strong>
+              <span class="text-muted text-small"><em>{{comment.fromNow}}</em></span>
+              <!-- <span ng-if="comment.ref_user == currentUser.uid">
+               	<i class="fa fa-times-circle text-danger" ng-click="deleteComment(story.$id, commentKey)"></i><p><input type="text" ng-model="comment.body"/></p>
+              </span> -->
+              <span ng-if="comment.ref_user == currentUser.uid">
+                <i class="fa fa-times-circle text-danger" ng-click="deleteComment(storyKey, commentKey)"></i><p>{{comment.body}}</p>
+              </span>
+             	<p ng-if="comment.ref_user != currentUser.uid">{{comment.body}}</p>
+          </div>
+      </li>
+
+      <!-- new comment -->
+      <hr/>
+    </ul>
+  </div>
+</div>

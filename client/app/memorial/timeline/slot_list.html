@@ -1,0 +1,9 @@
+
+<ul class="nav nav-tabs" data-toggle="tabs">
+  <li ng-repeat="(key, era) in memorial.timeline.era" ng-class="{active: getSelectedEraKey() == key}" ng-click="setSelectedEra(key, era)">
+  	<a>{{era.headline}} <span class="badge">{{storiesArray[key].length}}</span></a>
+  </li>
+  <li ng-class="{active: getSelectedEraKey() == 'tempKey'}" ng-click="setSelectedEra('tempKey', {})" tooltip-placement="top" tooltip="버튼을 눌러 추억의 시절을 생성해 주세요">
+    <a><i class="fa fa-plus-circle"/></a>
+	</li>
+</ul>

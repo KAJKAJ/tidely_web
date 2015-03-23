@@ -1,0 +1,30 @@
+<div flow-init>
+  <!-- story name, image , story description, story start date, location(?) --> 
+  <div class="modal-header">
+      <a href="#" editable-text="story.name">
+        {{ story.name || '제목을 입력하세요' }}
+      </a>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div ng-show="story.new_story">
+             <img flow-img="story.file" class="img-responsive">
+          </div>
+        </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <a href="#" editable-date="story.start_date">{{ story.start_date || '날짜를 입력해주세요'}}</a>
+        <hr/>
+        <div>
+         <a href="#" editable-textarea="story.desc" e-rows="7" e-cols="40" class="optional-text">
+            {{ story.desc || '설명이 필요하면 적어주세요' }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">확인</button>
+    <button class="btn btn-warning" ng-click="cancel()">취소</button>
+  </div>
+</div>

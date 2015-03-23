@@ -1,0 +1,106 @@
+{
+    "storymap": {
+        "slides": [{
+            "type": "overview",
+            "date": "1938-2006",
+            "text": {
+                "headline": "아버지의 일대기 <small>지나오신 길</small>",
+                "text": "<p> 우리 세대와는 달리 아버지 세대에선 유달리 이사를 많이 하신듯하다. 아버지도 예외가 아니셨는데, 아버지가 지나가셨던 길을 뒤집어 보면 ... "
+            },
+            "media": {
+                    "url":              "http://localhost:9876/tmp/facebook1090863150-1408974857397-4n1qncdq3xgbk-7.png",
+                    "credit":               "구미 사진관",
+                    "caption":          "구미 사진관에서"
+                }
+        },   {
+            "text": {
+                "headline": "결혼식 ",
+                "text": "<p>옛날 결혼식 사진이때 아마도 아버지는 동네 동장이셨다고 하신거 같다.</p>"
+            },
+            "location": {
+                "name": "Crawford County, Missouri",
+                "lat": 36.244242, 
+                "lon": 128.299169,
+                "zoom": 10,
+                "line": true
+            },
+            "media": {
+                    "url":              "http://localhost:9876/tmp/facebook1090863150-1409189912205-qws3iunblk2cs-31.png",
+                    "credit":               "선산 쪽에서 결혼 ",
+                    "caption":          "요즘은 선산에 갈일은 없는데, 중부내륙으로 내려가다보면 경부 고속도로랑 만나는 선산이 어머니 고향이시다. 두분은 이쪽 근처에서 결혼하셨다."
+                }
+        }, {
+            "date": "1958",
+            "text": {
+                "headline": "1958: 아포 중학교 시절",
+                "text": "<p>아포 중학교에서 근무하시던 시절이다. 시골 학교이긴 했지만, 아직도 남아있고, 여기서 졸업도 하시고 근무도 한동안 하셨던 것으로 기억한다.</p>"
+            },
+            "location": {
+                "name": "아포 중학교, 김천",
+                "lat": 36.163073,
+                "lon": 128.243102,
+                "zoom": 10,
+                "line": true
+            },
+            "media": {
+                    "url":              "http://localhost:9876/tmp/facebook1090863150-1409189850957-uu0h81n7ojxuh-10.png",
+                    "credit":               "아포 중학교 안에서 ",
+                    "caption":          "그 당시 자전거를 타는 사람도 그리 많지 않았다고 한다."
+                }
+        },{
+            "date": "1970",
+            "text": {
+                "headline": "1970: 정착지",
+                "text": "<p>셋째인 나를 낳으시면서 포항에서 지내셨다. 그때 포항 제철에서 근무를 하시게 되시면서 우리가족은 이곳에 정착하게 되고 이후에 돌아가실때까지 포항에서 살았다."
+            },
+            "location": {
+                "name": "포항시 덕수동",
+                "lat": 36.041906, 
+                "lon": 129.363189,
+                "zoom": 10,
+                "line": true
+            },
+            "media": {
+                    "url":              "http://localhost:9876/tmp/facebook1090863150-1409191583336-xgpw4f0lc76wd-26.png",
+                    "credit":               "포항",
+                    "caption":          "포항 덕수동이다. 내가 초등학교까지 살던 "
+                }
+        }, {
+            "date": "1990",
+            "text": {
+                "headline": "1970: 정착지",
+                "text": "<p>셋째인 나를 낳으시면서 포항에서 지내셨다. 그때 포항 제철에서 근무를 하시게 되시면서 우리가족은 이곳에 정착하게 되고 이후에 돌아가실때까지 포항에서 살았다."
+            },
+            "location": {
+                "name": "포항시 덕수동",
+                "lat": 36.041906, 
+                "lon": 129.363189,
+                "zoom": 10,
+                "line": true
+            },
+            "media": {
+                    "url":              "https://vimeo.com/104701126",
+                    "credit":               "포항",
+                    "caption":          "포항 덕수동이다. 내가 초등학교까지 살던 "
+                }
+        }, {
+            "date": "2006",
+            "text": {
+                "headline": "2006: 투병 중이시던 시절",
+                "text": "<p>70세인 해에 돌아가시기 전에 투병중이시던 시절, 함께 병원생활을 하시던 모습이다. 그때까지도 워낙 건강하신 분이라 나을 수 있을줄 알았다."
+            },
+            "location": {
+                "name": "Texas County, Missouri",
+                "lat": 37.526275, 
+                "lon": 127.108027,
+                "zoom": 10,
+                "line": true
+            },
+            "media": {
+                    "url":              "http://localhost:9876/tmp/facebook1090863150-1409190097017-4uv106br5bbro-33.JPG",
+                    "credit":               "아산병원",
+                    "caption":          "치료 받으시던 시절"
+                }
+        }]
+    }
+}
