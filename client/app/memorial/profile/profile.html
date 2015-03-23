@@ -1,4 +1,4 @@
-<div class="block-section">
+<div>
 	<div ng-if="isOwner">
 		<form name="memorialForm" ng-submit="updateMemorial(memorialForm)" novalidate>
 			<!-- <tabset>
@@ -6,8 +6,8 @@
 			</tabset> -->
 			
     	<div class="col-md-6">
-
-
+    		<div class="divider"/>
+    		<h3>기본 정보</h3>
 	    	<div class="input-group">
 				  <span class="input-group-addon">이름</span>
 				  <input type="text" class="form-control" name="name" placeholder="이름을 입력하세요" ng-model="copyMemorial.name" ng-required="true">
@@ -35,9 +35,37 @@
 				<br/>
 
 				소개글
-
 				<textarea class="form-control" ng-model="copyMemorial.description" rows="5" placeholder="소개글을 입력하세요.." style="resize: vertical;margin: 1px 0px 10px;"/>
 				
+				<h3>결혼</h3>
+				<div class="form-group">
+					<label class="switch switch-success" for="val_married">
+				    <input type="checkbox" id="val_married" name="val_married" ng-model="copyMemorial.wedding.married">
+				    <span tooltip-placement="left" tooltip="결혼여부"></span>
+				  </label>
+				</div>
+				<div ng-if="copyMemorial.wedding.married">
+					<div class="input-group">
+					  <span class="input-group-addon">배우자 이름</span>
+					  <input type="text" class="form-control" name="partner_name" placeholder="이름을 입력하세요" ng-model="copyMemorial.wedding.partner">
+					</div>
+					<br/>
+
+					<div class="input-group">
+					  <span class="input-group-addon">결혼 날짜</span>
+					  <input type="text" class="form-control" name="dateOfWedding" placeholder="결혼하신 날짜를 입력하세요" 
+					  is-open="dateOfWeddingOpened" datepicker-popup="yyyy-MM-dd" max-date="today"
+					  ng-model="copyMemorial.wedding.dateOfWedding"/>
+					  <span class="input-group-btn">
+					    <button type="button" class="btn btn-default" ng-click="openDatepicker($event,'dateOfWeddingOpened')"><i class="glyphicon glyphicon-calendar text-success"></i></button>
+					  </span>
+					</div>
+
+				</div>
+
+
+				<div class="divider"/>
+				<h3>공개 설정</h3>
 				<div class="form-group">
 					<label class="switch switch-success" for="val_public">
 				    <input type="checkbox" id="val_public" name="val_public" ng-model="copyMemorial.public">
@@ -47,7 +75,7 @@
 				<label ng-if="copyMemorial.public" class="public-label"> 현재 공개 상태 입니다.</label>
         <label ng-if="!copyMemorial.public" class="public-label"> 현재 비공개 상태 입니다.</label>
 			</div>
-							    
+
 		  <div class="col-md-12">
 				<button type="submit" class="btn btn-lg btn-success" ng-disabled="fileUploading||memorialForm.$invalid">저장</button>		  
 				<br/>

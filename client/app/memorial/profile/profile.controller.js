@@ -29,7 +29,9 @@ angular.module('doresolApp')
             dateOfDeath:moment().format("YYYY-MM-DD"),
 
             description: $scope.copyMemorial.description?$scope.copyMemorial.description:null,
-            public:$scope.copyMemorial.public
+            public:$scope.copyMemorial.public,
+
+            wedding:$scope.copyMemorial.wedding
     			}
     		).then(function(){
     			$scope.message = '저장되었습니다.';
