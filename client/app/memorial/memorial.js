@@ -16,7 +16,18 @@ angular.module('doresolApp')
         // },
         // authenticate: true
       })
-
+      .state('memorial.loi_medical', {
+        url:'/loi_medical',
+        templateUrl: 'app/memorial/loi/medical.html',
+        controller: 'LoiCtrl',
+        authenticate: true
+      })
+      .state('memorial.loi_funeral', {
+        url:'/loi_medical',
+        templateUrl: 'app/memorial/loi/funeral.html',
+        controller: 'LoiCtrl',
+        authenticate: true
+      })
       .state('memorial.profile', {
         url:'/profile',
         templateUrl: 'app/memorial/profile/profile.html',

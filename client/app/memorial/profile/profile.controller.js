@@ -19,13 +19,6 @@ angular.module('doresolApp')
       $scope.isGuest = Memorial.isGuest();
     });
 
-   //  $scope.yearPickerOptions = {
-   //    datepickerMode:"'year'",
-   //    minMode:"'year'",
-   //    maxDate: $scope.today,
-   //    showWeeks:"false",
-   // };
-
     $scope.newSchool = {};
     $scope.addNewSchoolFlag = false;
 

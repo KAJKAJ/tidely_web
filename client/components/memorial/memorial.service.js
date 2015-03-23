@@ -156,6 +156,15 @@
 		});
 	};
 
+	var updateLoi = function(memorialId, data) {
+		
+		var loiRef = ref.child(memorialId + '/letter_of_intent');
+		var loi = $firebase(loiRef);
+		loi = data;
+
+		return loi.$save();
+	}
+
 	var addWaiting = function(memorialId, requesterId) {
 		var waitingsRef = ref.child(memorialId + '/waitings');
 		var waiting = $firebase(waitingsRef);
@@ -234,6 +243,8 @@
 		createEra:createEra,
 		updateEra:updateEra,
 		removeEra:removeEra,
+
+		updateLoi:updateLoi,
 
 		//member 
 		addMember: addMember,

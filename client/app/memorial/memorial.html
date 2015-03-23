@@ -57,14 +57,20 @@
 	  	<!-- <li ng-class="{active: $state.includes('memorial.timeline')}" tooltip-placement="bottom" tooltip="시간의 흐름에 따른 일대기를 만들어보세요">
         <a ui-sref="memorial.timeline({id:memorialKey})"><i class="fa fa-road"></i> Timeline</a>
       </li> -->
+      <li ng-class="{active: $state.includes('memorial.loi_medical')}" tooltip-placement="bottom" tooltip="응급 상황시의 의료 행위를 준비하세">
+        <a ui-sref="memorial.loi_medical({id:memorialKey})"><i class="fa fa-ambulance"></i> 사전 의료 의향서</a>
+      </li>
+      <li ng-class="{active: $state.includes('memorial.loi_funeral')}" tooltip-placement="bottom" tooltip="자신의 장례식을 준비하세요">
+        <a ui-sref="memorial.loi_funeral({id:memorialKey})"><i class="fa fa-bed"></i> 사전 장례 의향서</a>
+      </li>
 	  	<li ng-class="{active: $state.includes('memorial.storymap')}" tooltip-placement="bottom" tooltip="그 분의 이야기를 들어보세요">
-        <a ui-sref="memorial.storymap({id:memorialKey})"><i class="fa fa-road"></i> 이야기</a>
+        <a ui-sref="memorial.storymap({id:memorialKey})"><i class="fa fa-road"></i> 나의 이야기(자서전)</a>
       </li>
 			<li ng-class="{active: $state.includes('memorial.storyline')}"  tooltip-placement="bottom" tooltip="전하고 싶은 말을 적어보세요">
-        <a ui-sref="memorial.storyline({id:memorialKey})"><i class="fa fa-comment"></i> 하고싶은 말</a>
+        <a ui-sref="memorial.storyline({id:memorialKey})"><i class="fa fa-comment"></i> 방명록</a>
       </li>
       <li ng-class="{active: $state.includes('memorial.member')}" tooltip-placement="bottom" tooltip="함께하는 분들을 확인해 보세요">
-        <a ui-sref="memorial.member({id:memorialKey})"><i class="fa fa-users"></i> 함께하는 분들</a>
+        <a ui-sref="memorial.member({id:memorialKey})"><i class="fa fa-users"></i> 함께하는 분</a>
       </li>
       <li>
         <audio id="bg_music" controls autoplay loop style="width:180px; display:block; margin:10px;">

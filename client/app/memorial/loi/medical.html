@@ -1,0 +1,34 @@
+<div>
+	<p></p>
+  <div class="block-section">
+    <div class="block-title">
+        <h2><strong>사전 의료 의향서</strong></h2>
+    </div>
+        <p> 나는 정신이 명료한 상태에서 직접 이 사전 의료 의향서를 작성합니다. 건강을 회복할 수 없는 상태가 되고, 진단과 치료에 대하여 나 스스로의 의사 표시가 불가능해질 때 담당 의료진과 가족들이 이 사전 의료 의향서에 기록된 나의 뜻을 존중해주시기 바랍니다. (나는 언제라도 이 사전의료의향서를 직접 변경하거나 철회할 수 있음을 알고 있습니다.)
+        </p>
+
+  </div>
+
+  <form name="form" ng-submit="updateMedicalForm(form)" novalidate>
+    <div class="block-title">
+      <h2><strong>적용시기</strong></h2>
+      <p>다음과 같은 건강과 정신 상태에서 이 사전 의료 의향서의 뜻을 반영해주십시요.</p>
+    </div>
+    <div class="form-group">
+      <label class="switch switch-success" for="medicalcare_brain">
+        <input type="checkbox" id="medicalcare_brain" name="medicalcare_brain" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.brain">
+        <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
+      </label>
+      <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.brain" class="public-label"> 연명치료를 원합니다.</label>
+      <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.brain" class="public-label"> 연명치료를 원하지 않습니다.</label>
+    </div>
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-lg btn-success" ng-disabled="memorialForm.$invalid">의향서 저장</button>     
+      <br/>
+    </div>
+  </form>
+</div>
+
+
+
+
