@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('doresolApp')
-  .controller('ProfileCtrl', function ($scope,$stateParams,Util,Composite,$state,User,Memorial) {
+  .controller('ProfileCtrl', function ($scope,$stateParams,Util,Composite,$state,User,Memorial,$timeout) {
     $scope.today = Date.now();
     
     $scope.currentUser = User.getCurrentUser();
@@ -20,52 +20,23 @@ angular.module('doresolApp')
     });
 
     $scope.updateMemorial = function(form){
-    	if(form.$valid){
-    		Memorial.update($scope.copyMemorial.$id,
-    			{
-    				name:$scope.copyMemorial.name,
-    				dateOfBirth:moment($scope.copyMemorial.dateOfBirth).format("YYYY-MM-DD"),
-    				dateOfDeath:moment($scope.copyMemorial.dateOfDeath).format("YYYY-MM-DD"),
-            description: $scope.copyMemorial.description?$scope.copyMemorial.description:null,
-            public:$scope.copyMemorial.public
-    			}
-    		).then(function(){
-    			$scope.message = '저장되었습니다.';
-    		});
-    	}
+    	// if(form.$valid){
+    	// 	Memorial.update($scope.copyMemorial.$id,
+    	// 		{
+    	// 			name:$scope.copyMemorial.name,
+    	// 			dateOfBirth:moment($scope.copyMemorial.dateOfBirth).format("YYYY-MM-DD"),
+    	// 			// dateOfDeath:moment($scope.copyMemorial.dateOfDeath).format("YYYY-MM-DD"),
+     //        dateOfDeath:moment().format("YYYY-MM-DD"),
+
+     //        description: $scope.copyMemorial.description?$scope.copyMemorial.description:null,
+     //        public:$scope.copyMemorial.public
+    	// 		}
+    	// 	).then(function(){
+    	// 		$scope.message = '저장되었습니다.';
+    	// 	});
+    	// }
+      console.log($scope.copyMemorial);
     }
-
-    // $scope.mySpecialPlayButton = function () {
-    //   $scope.customText = 'I started angular-media-player with a custom defined action!';
-    //   $scope.audio1.playPause();
-    // };
-
-
-    // $scope.createMemorial = function(form){
-    //   if(form.$valid){
-    //     var file = null;
-    //     if($scope.newMemorial.lastUploadingFile){
-    //       file = {
-    //           location: 'local',
-    //           url: '/tmp/' + $scope.newMemorial.lastUploadingFile,
-    //           updated_at: moment().toString()
-    //         }
-    //     }
-
-    //     var memorial = {
-    //         name: $scope.newMemorial.name,
-    //         dateOfBirth: moment($scope.newMemorial.dateOfBirth).format("YYYY-MM-DD"),
-    //         dateOfDeath: moment($scope.newMemorial.dateOfDeath).format("YYYY-MM-DD"),
-    //         file:file,
-    //         ref_user:$scope.currentUser.uid,
-    //         public: $scope.newMemorial.public
-    //     };
-        
-    //     Composite.createMemorial(memorial).then(function (value) {
-    //       $state.transitionTo('memorial.timeline', {id: value.name()});
-    //     });
-    //   }
-    // }
 
     $scope.changeProfileImage = function(){
     	var file = null;
@@ -119,5 +90,4 @@ angular.module('doresolApp')
         $state.transitionTo('memorial.storyline', {id: $scope.memorialKey}, {'reload':true});
       });
     }
-
   });
