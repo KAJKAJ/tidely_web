@@ -1,63 +1,53 @@
 <div class="block-section">
 	<div ng-if="isOwner">
 		<form name="memorialForm" ng-submit="updateMemorial(memorialForm)" novalidate>
-
-			<tabset >
-		    <tab heading="기본정보">
-		    	<br/>
-		    	<div class="col-md-6">
-			    	<div class="input-group">
-						  <span class="input-group-addon">이름</span>
-						  <input type="text" class="form-control" name="name" placeholder="이름을 입력하세요" ng-model="copyMemorial.name" ng-required="true">
-						</div>
-						<div class="alert alert-danger" role="alert"
-							 ng-show="memorialForm.name.$dirty && memorialForm.name.$invalid">
-							 <span ng-show="memorialForm.name.$error.required">이름을 입력해 주세요.</span>
-						</div>
-						<br/>
-
-						<div class="input-group">
-						  <span class="input-group-addon">태어나신 날짜</span>
-						  <input type="text" class="form-control" name="dateOfBirth" placeholder="태어나신 날을 입력하세요" 
-						  is-open="dateOfBirthOpened" datepicker-popup="yyyy-MM-dd" max-date="today"
-						  ng-required="true" ng-model="copyMemorial.dateOfBirth"/>
-						  <span class="input-group-btn">
-						    <button type="button" class="btn btn-default" ng-click="openDatepicker($event,'dateOfBirthOpened')"><i class="glyphicon glyphicon-calendar text-success"></i></button>
-						  </span>
-						</div>
-						<div class="alert alert-danger" role="alert"
-							 ng-show="memorialForm.dateOfBirth.$dirty && memorialForm.dateOfBirth.$invalid">
-							 <span ng-show="!memorialForm.dateOfBirth.$error.date&&memorialForm.dateOfBirth.$error.required">태어나신 날을 입력해 주세요.</span>
-							 <span ng-show="memorialForm.dateOfBirth.$error.date">정확한 날짜 형식이 아닙니다.</span>
-						</div>
-						<br/>
-
-						<!-- <div class="input-group">
-						  <span class="input-group-addon">고향</span>
-						  <input type="text" class="form-control" placeholder="태어난 장소를 입력해 주세요" id="mapSearchAutoCompleteInput" name="mapSearchAutoCompleteInput" ng-autocomplete
-						    	details="details" options="mapSearchOptions" ng-model="copyMemorial.homeTown">
-
-						</div>
-						<br/>	 -->		
-
-						<textarea class="form-control" ng-model="copyMemorial.description" rows="5" placeholder="소개글을 입력하세요.." style="resize: vertical;margin: 1px 0px 10px;"/>
-						
-						<div class="form-group">
-						  <label class="switch switch-success" for="val_public">
-						    <input type="checkbox" id="val_public" name="val_public" ng-model="copyMemorial.public">
-						    <span tooltip-placement="bottom" tooltip="공개설정"></span>
-						  </label>
-						  <label ng-if="copyMemorial.public" class="public-label"> 현재 공개 상태 입니다.</label>
-			        <label ng-if="!copyMemorial.public" class="public-label"> 현재 비공개 상태 입니다.</label>
-						</div>
-					</div>
-		    </tab>
-		    <tab heading="SJ">
-		    	
-		    </tab>
-		  </tabset>
-
+			<!-- <tabset>
+				<tab heading="heading"></tab>
+			</tabset> -->
 			
+    	<div class="col-md-6">
+
+
+	    	<div class="input-group">
+				  <span class="input-group-addon">이름</span>
+				  <input type="text" class="form-control" name="name" placeholder="이름을 입력하세요" ng-model="copyMemorial.name" ng-required="true">
+				</div>
+				<div class="alert alert-danger" role="alert"
+					 ng-show="memorialForm.name.$dirty && memorialForm.name.$invalid">
+					 <span ng-show="memorialForm.name.$error.required">이름을 입력해 주세요.</span>
+				</div>
+				<br/>
+
+				<div class="input-group">
+				  <span class="input-group-addon">태어나신 날짜</span>
+				  <input type="text" class="form-control" name="dateOfBirth" placeholder="태어나신 날을 입력하세요" 
+				  is-open="dateOfBirthOpened" datepicker-popup="yyyy-MM-dd" max-date="today"
+				  ng-required="true" ng-model="copyMemorial.dateOfBirth"/>
+				  <span class="input-group-btn">
+				    <button type="button" class="btn btn-default" ng-click="openDatepicker($event,'dateOfBirthOpened')"><i class="glyphicon glyphicon-calendar text-success"></i></button>
+				  </span>
+				</div>
+				<div class="alert alert-danger" role="alert"
+					 ng-show="memorialForm.dateOfBirth.$dirty && memorialForm.dateOfBirth.$invalid">
+					 <span ng-show="!memorialForm.dateOfBirth.$error.date&&memorialForm.dateOfBirth.$error.required">태어나신 날을 입력해 주세요.</span>
+					 <span ng-show="memorialForm.dateOfBirth.$error.date">정확한 날짜 형식이 아닙니다.</span>
+				</div>
+				<br/>
+
+				소개글
+
+				<textarea class="form-control" ng-model="copyMemorial.description" rows="5" placeholder="소개글을 입력하세요.." style="resize: vertical;margin: 1px 0px 10px;"/>
+				
+				<div class="form-group">
+					<label class="switch switch-success" for="val_public">
+				    <input type="checkbox" id="val_public" name="val_public" ng-model="copyMemorial.public">
+				    <span tooltip-placement="left" tooltip="공개설정"></span>
+				  </label>
+				</div>
+				<label ng-if="copyMemorial.public" class="public-label"> 현재 공개 상태 입니다.</label>
+        <label ng-if="!copyMemorial.public" class="public-label"> 현재 비공개 상태 입니다.</label>
+			</div>
+							    
 		  <div class="col-md-12">
 				<button type="submit" class="btn btn-lg btn-success" ng-disabled="fileUploading||memorialForm.$invalid">저장</button>		  
 				<br/>

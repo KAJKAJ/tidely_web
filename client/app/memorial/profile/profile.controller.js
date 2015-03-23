@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('doresolApp')
-  .controller('ProfileCtrl', function ($scope,$stateParams,Util,Composite,$state,User,Memorial,$timeout) {
+  .controller('ProfileCtrl', function ($scope,$stateParams,Util,Composite,$state,User,Memorial) {
     $scope.today = Date.now();
     
     $scope.currentUser = User.getCurrentUser();
@@ -20,22 +20,21 @@ angular.module('doresolApp')
     });
 
     $scope.updateMemorial = function(form){
-    	// if(form.$valid){
-    	// 	Memorial.update($scope.copyMemorial.$id,
-    	// 		{
-    	// 			name:$scope.copyMemorial.name,
-    	// 			dateOfBirth:moment($scope.copyMemorial.dateOfBirth).format("YYYY-MM-DD"),
-    	// 			// dateOfDeath:moment($scope.copyMemorial.dateOfDeath).format("YYYY-MM-DD"),
-     //        dateOfDeath:moment().format("YYYY-MM-DD"),
+    	if(form.$valid){
+    		Memorial.update($scope.copyMemorial.$id,
+    			{
+    				name:$scope.copyMemorial.name,
+    				dateOfBirth:moment($scope.copyMemorial.dateOfBirth).format("YYYY-MM-DD"),
+    				// dateOfDeath:moment($scope.copyMemorial.dateOfDeath).format("YYYY-MM-DD"),
+            dateOfDeath:moment().format("YYYY-MM-DD"),
 
-     //        description: $scope.copyMemorial.description?$scope.copyMemorial.description:null,
-     //        public:$scope.copyMemorial.public
-    	// 		}
-    	// 	).then(function(){
-    	// 		$scope.message = '저장되었습니다.';
-    	// 	});
-    	// }
-      console.log($scope.copyMemorial);
+            description: $scope.copyMemorial.description?$scope.copyMemorial.description:null,
+            public:$scope.copyMemorial.public
+    			}
+    		).then(function(){
+    			$scope.message = '저장되었습니다.';
+    		});
+    	}
     }
 
     $scope.changeProfileImage = function(){
