@@ -19,6 +19,29 @@ angular.module('doresolApp')
       $scope.isGuest = Memorial.isGuest();
     });
 
+   //  $scope.yearPickerOptions = {
+   //    datepickerMode:"'year'",
+   //    minMode:"'year'",
+   //    maxDate: $scope.today,
+   //    showWeeks:"false",
+   // };
+
+    $scope.newSchool = {};
+    $scope.addNewSchoolFlag = false;
+
+    $scope.toggleAddNewSchoolFlag = function(){
+      $scope.addNewSchoolFlag = !$scope.addNewSchoolFlag;
+    }
+
+    $scope.addNewSchool = function(){
+      if(!$scope.copyMemorial.school){
+        $scope.copyMemorial.school = [];
+      }
+      $scope.copyMemorial.school.push($scope.newSchool);
+      $scope.newSchool = {};
+      $scope.toggleAddNewSchoolFlag();
+    }
+
     $scope.updateMemorial = function(form){
     	if(form.$valid){
     		Memorial.update($scope.copyMemorial.$id,
