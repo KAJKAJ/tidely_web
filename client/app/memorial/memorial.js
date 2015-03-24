@@ -28,6 +28,12 @@ angular.module('doresolApp')
         controller: 'LoiCtrl',
         authenticate: true
       })
+      .state('memorial.special_people', {
+        url:'/special_people',
+        templateUrl: 'app/memorial/special_people/special_people.html',
+        controller: 'SpecialPeopleCtrl',
+        authenticate: true
+      })
       .state('memorial.profile', {
         url:'/profile',
         templateUrl: 'app/memorial/profile/profile.html',
