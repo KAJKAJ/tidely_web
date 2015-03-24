@@ -34,6 +34,12 @@ angular.module('doresolApp')
         controller: 'SpecialPeopleCtrl',
         authenticate: true
       })
+      .state('memorial.instruction', {
+        url:'/instruction',
+        templateUrl: 'app/memorial/instruction/instruction.html',
+        controller: 'InstructionCtrl',
+        authenticate: true
+      })
       .state('memorial.profile', {
         url:'/profile',
         templateUrl: 'app/memorial/profile/profile.html',
