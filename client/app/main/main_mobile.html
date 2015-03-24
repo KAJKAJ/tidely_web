@@ -1,12 +1,12 @@
 <div ng-if="isMobile">
   <div ng-include="'components/navbar/navbar.html'"></div>
   <div class="alert alert-info alert-dismissable" style="padding-top:60px;">
-    <h4><i class="fa fa-info-circle"></i> Info</h4> 모바일 웹에서는 "메모리얼 생성"과 같은 일부 기능을 지원하지 않습니다. 더 많은 기능을 사용하길 원하시는 분은 PC로 접속해 주시길 바랍니다.
+    <h4><i class="fa fa-info-circle"></i> Info</h4> 모바일 웹에서는 "엔딩 노트 생성"과 같은 일부 기능을 지원하지 않습니다. 더 많은 기능을 사용하길 원하시는 분은 PC로 접속해 주시길 바랍니다.
   </div>
   <div id="intro_create_overlay_mobile">
     <div class="col-sm-12">
       <h1 class="intro_create_title">추억, 사랑, 기억</h1>
-      <h2 class="intro_create_sub_title">도래솔은 <br/> 사랑했지만 이젠 곁에 없는 이들을 추억하기 위한 <br/> <u><strong>온라인 추모</strong></u> 서비스입니다.</h2>
+      <h2 class="intro_create_sub_title">Tidely는 <br/> 소중한 사람들에게 이별 전에 추억을 선물할 수 있는 <u><strong>온라인 Ending Note</strong></u> 서비스입니다.</h2>
       <br><br>
     </div>
     <br><br>
@@ -35,7 +35,7 @@
         <hr>
         
         <div class="well">
-          <span style="color:gray;font-size:14px;">도래솔에 처음이세요?</span>
+          <span style="color:gray;font-size:14px;">Tidely에 처음이세요?</span>
           <form class="form" name="signupForm" ng-submit="signup(signupForm)" novalidate>
             <div class="form-group" ng-class="{ 'has-success': signupForm.email.$valid && signupSubmitted,
                                                 'has-error': signupForm.email.$invalid && signupSubmitted }">
@@ -89,16 +89,16 @@
       </div>
       <div class="row featurette">
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" ng-src="/assets/images/album.png" alt="메모리얼 제작 대행">
+          <img class="featurette-image img-responsive" ng-src="/assets/images/album.png" alt="엔딩 노트 제작 대행">
         </div>
         <div class="col-md-7">
           <div class="jumbotron" style="margin-top:40px;">
-            <h2>메모리얼 제작 대행</h2>
+            <h2>엔딩 노트 제작 대행</h2>
             <hr>
             <p> 보관중인 앨범이나 사진을 보내주시면 <b class="text-primary">사이트 제작을 대행</b>해 드립니다.</p>
             <ul style="font-size:20px;">
               <li>집에있는 사진 및 앨범을 보내주세요.</li>
-              <li>본인만의 안전한 메모리얼 사이트를 생성해드립니다.</li>
+              <li>본인만의 안전한 엔딩 노트 사이트를 생성해드립니다.</li>
               <li>원하실 경우 USB/DVD에 디지털 파일을 담아 보내드립니다.</li>
             </ul>
             <button type="button" class="btn btn-lg btn-success" ui-sref="agency"><h4><img ng-src="/assets/images/doresol_logo_lightgreen.png" class="logo-image">&nbsp;제작 대행 더 알아보기</h4></button>
@@ -113,7 +113,7 @@
   <div class="container">
     <div class="block-section">
         <div class="block-title">
-            <h2><strong>생성된 메모리얼</strong></h2>
+            <h2><strong>생성된 엔딩 노트</strong></h2>
         </div>
         <div class="row">
           <div class="col-md-3">

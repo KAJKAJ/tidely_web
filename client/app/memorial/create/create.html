@@ -54,27 +54,6 @@
 		  	</div>
 		  	<br/>
 
-		  	<!-- <div class="input-group">
-            <span class="input-group-addon">이야기가 끝나는 날</span>
-            <input type="text" class="form-control" name="dateOfDeath" placeholder="이야기가 끝나는 날을 입력하세요" 
-				    is-open="dateOfDeathOpened" datepicker-popup="yyyy-MM-dd" min-date="newMemorial.dateOfBirth" max-date="today"
-				    ng-required="true" ng-model="newMemorial.dateOfDeath"/>
-		        <span class="input-group-btn">
-		          <button type="button" class="btn btn-default" ng-click="openDatepicker($event,'dateOfDeathOpened')"><i class="glyphicon glyphicon-calendar text-success"></i></button>
-		        </span>
-        </div>
-	      <div class="alert alert-danger" role="alert"
-		  		 ng-show="newMemorialForm.dateOfDeath.$dirty && newMemorialForm.dateOfDeath.$invalid">
-		  		 <span ng-show="!newMemorialForm.dateOfDeath.$error.date&&newMemorialForm.dateOfDeath.$error.required">이야기가 끝나는 날을 입력해주세요.</span>
-		  		 <span ng-show="newMemorialForm.dateOfDeath.$error.date">정확한 날짜 형식이 아닙니다.</span>
-		  	</div>
-
-		  	<div class="alert alert-danger" role="alert"
-		  		 ng-show="newMemorialForm.name.$valid && newMemorialForm.dateOfBirth.$valid &&  newMemorialForm.dateOfDeath.$valid && newMemorialForm.$valid == false">		  		 
-		  		 <span>기간 설정이 잘못되었습니다.</span>
-		  	</div>
-		  	<br/> -->
-		  	
 		  	<textarea class="form-control" ng-model="newMemorial.description" rows="5" placeholder="소개글을 입력하세요.." style="resize: vertical;margin: 1px 0px 10px;"/>
        
 		  	<div class="form-group">
@@ -83,7 +62,7 @@
             <span tooltip-placement="bottom" tooltip="공개 설정"></span>
           </label>
           <label ng-if="newMemorial.public" class="public-label"> 현재 공개 상태 입니다. 공개 상태에선 승인없이 다른 사람이 컨텐츠를 볼 수 있습니다. </label>
-          <label ng-if="!newMemorial.public" class="public-label"> 현재 비공개 상태 입니다. 비공개에선 만드신 분의 승인없이 다른 사람이 메모리얼에 접근할 수 없습니다.</label>
+          <label ng-if="!newMemorial.public" class="public-label"> 현재 비공개 상태 입니다. 비공개에선 만드신 분의 승인없이 다른 사람이 엔딩 노트에 접근할 수 없습니다.</label>
         </div> 
 		  	<br/>
 

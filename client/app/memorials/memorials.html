@@ -1,12 +1,12 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="alert alert-info alert-dismissable" style="padding-top:60px;" ng-if="isMobile">
-  <h4><i class="fa fa-info-circle"></i> Info</h4> 모바일 웹에서는 새로운 메모리얼을 생성 할 수 없습니다. 새로운 메모리얼을 생성하길 원하시는 분은 PC로 접속해 주시길 바랍니다.
+  <h4><i class="fa fa-info-circle"></i> Info</h4> 모바일 웹에서는 새로운 엔딩노트를 생성 할 수 없습니다. 새로운 엔딩노트를 생성하길 원하시는 분은 PC로 접속해 주시길 바랍니다.
 </div>
 
 <div class="container contents">	
 	<div class="block-section">
     <div class="block-title">
-        <h2><strong>가입한 메모리얼</strong></h2>
+        <h2><strong>가입한 엔딩 노트</strong></h2>
     </div>
 		<div masonry item-selector=".brick-memorials" preserve-order>
 			<div class="brick-memorials col-md-3 col-sm-6 col-xs-12" style="padding-bottom:20px;">
@@ -82,7 +82,7 @@
     </div>
     <div ng-if="isEmptyObject(myWaitingMemorials)">
       <div class="alert alert-success">
-       <h4><i class="fa fa-check-circle"></i> 가입승인 대기중인 메모리얼이 없습니다.</h4>
+       <h4><i class="fa fa-check-circle"></i> 가입승인 대기중인 엔딩 노트가 없습니다.</h4>
       </div>
     </div>
 		<div ng-if="!isEmptyObject(myWaitingMemorials)" masonry item-selector=".brick-waitings" preserve-order>

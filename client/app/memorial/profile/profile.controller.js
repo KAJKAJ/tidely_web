@@ -14,17 +14,22 @@ angular.module('doresolApp')
 		$scope.memorial.$loaded().then(function(value){
       angular.copy($scope.memorial,$scope.copyMemorial);
 
+      if (!$scope.copyMemorial.name) $scope.copyMemorial.name = "";
+      if (!$scope.copyMemorial.dateOfBirth) $scope.copyMemorial.dateOfBirth = "";
+      if (!$scope.copyMemorial.dateOfDeath) $scope.copyMemorial.dateOfDeath = "";
+      if (!$scope.copyMemorial.description) $scope.copyMemorial.description = "";
+      if (!$scope.copyMemorial.public) $scope.copyMemorial.public = true;
+      if (!$scope.copyMemorial.wedding) $scope.copyMemorial.wedding = false;
+      if (!$scope.copyMemorial.school) $scope.copyMemorial.school = {};
+      if (!$scope.copyMemorial.work) $scope.copyMemorial.work = {};
+      if (!$scope.copyMemorial.height) $scope.copyMemorial.height = "";
+      if (!$scope.copyMemorial.weight) $scope.copyMemorial.weight = "";
+      if (!$scope.copyMemorial.bloodType) $scope.copyMemorial.bloodType = "";
+
       $scope.isOwner = Memorial.isOwner();
       $scope.isMember = Memorial.isMember();
       $scope.isGuest = Memorial.isGuest();
     });
-
-   //  $scope.yearPickerOptions = {
-   //    datepickerMode:"'year'",
-   //    minMode:"'year'",
-   //    maxDate: $scope.today,
-   //    showWeeks:"false",
-   // };
 
     $scope.newSchool = {};
     $scope.addNewSchoolFlag = false;

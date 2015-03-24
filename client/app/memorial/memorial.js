@@ -23,7 +23,7 @@ angular.module('doresolApp')
         authenticate: true
       })
       .state('memorial.loi_funeral', {
-        url:'/loi_medical',
+        url:'/loi_funeral',
         templateUrl: 'app/memorial/loi/funeral.html',
         controller: 'LoiCtrl',
         authenticate: true

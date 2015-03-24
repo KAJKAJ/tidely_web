@@ -1,28 +1,10 @@
- <toaster-container toaster-options="
-    {
-      'close-button': false,
-      'debug': false,
-      'newest-on-top': false,
-      'progress-bar': false,
-      'position-class': 'toast-bottom-center',
-      'prevent-duplicates': false,
-      'onclick': null,
-      'show-duration': '100',
-      'hide-duration': '1300',
-      'time-out': '1300',
-      'extended-time-out': '1300',
-      'show-easing': 'swing',
-      'hide-easing': 'linear',
-      'show-method': 'fadeIn',
-      'hide-method': 'fadeOut'
-    }">
-
-</toaster-container>
+ 
 <header ng-controller="NavbarCtrl" ng-class="{'header-scroll':shrink_header}">
   <div class="navbar-container">
     <!-- Site Logo -->
     <a ui-sref="main" class="site-logo">
-      <img id="logo_image" src="assets/images/green_icon.png"></img> Doresol
+      <!-- <img id="logo_image" src="assets/images/green_icon.png"></img> -->
+      Tidely
       <!--<i class="gi gi-flash"></i> <strong>Pro</strong>UI-->
     </a>
     <!-- &nbsp;<span class="label label-success">Beta</span> -->
@@ -45,11 +27,11 @@
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}">{{item.title}}</a>
         </li>
-        <li ng-show="currentUser" ng-class="{active: isActive('/memorials')}"><a href="/memorials">메모리얼</a></li>
+        <li ng-show="currentUser" ng-class="{active: isActive('/memorials')}"><a href="/memorials">엔딩 노트</a></li>
 
         <!-- <li ng-class="{active: isActive('/agency')}"><a href="/agency">제작대행</a></li> -->
 
-        <li ng-class="{active: isActive('/customercare')}"><a href="/customercare">고객센터</a></li>
+        <!-- <li ng-class="{active: isActive('/customercare')}"><a href="/customercare">고객센터</a></li> -->
 
         <li ng-show="currentUser" class="dropdown open">
           <a class="dropdown-toggle" data-toggle="dropdown">

@@ -75,14 +75,9 @@
       <li ng-class="{active: $state.includes('memorial.member')}" tooltip-placement="bottom" tooltip="함께하는 분들을 확인해 보세요">
         <a ui-sref="memorial.member({id:memorialKey})"><i class="fa fa-users"></i> 멤버</a>
       </li>
-      <li>
-        <audio id="bg_music" controls autoplay loop style="width:180px; display:block; margin:10px;">
-<!--           <source src="/assets/audio/Terminal_D.mp3" type="audio/mpeg">
-          <source src="/assets/audio/Terminal_D.mp3" type="audio/mpeg">
- -->          Your browser does not support the audio tag.
-        </audio>
-      </li>
 		</ul>
+    <br/><br/>
+    <iframe width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/60626244&amp;auto_play=true&amp;show_user=false&amp;show_artwork=false&amp;single_active=true"></iframe>
     <ul class="nav nav-pills nav-stacked" role="tablist" ng-if="isMobile">
       <li><a disabled style="color:gray;"><i class="fa fa-road"></i> 이야기</a></li>
       <li ng-class="{active: $state.includes('memorial.storyline')}"  tooltip-placement="bottom" tooltip="전하고 싶은 말을 적어보세요">
