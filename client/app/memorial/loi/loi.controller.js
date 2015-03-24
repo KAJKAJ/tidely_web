@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('doresolApp')
-  .controller('LoiCtrl', function ($scope,Memorial,$stateParams,User,$state,$http,ENV,$firebase,Composite) {
+  .controller('LoiCtrl', function ($scope,Memorial,$stateParams,User,$state,$http,ENV,$firebase,Composite,toaster) {
 
   	// console.log('ProfileCtrl');
     $scope.memorialKey = $stateParams.id;
@@ -58,8 +58,8 @@ angular.module('doresolApp')
           }
           
         ).then(function(){
-          $scope.isSubmitted = true;
-          $scope.message = '저장되었습니다.';
+          toaster.pop('success', null, "저장되었습니다");
+          $scope.message = '.';
         });
       }
     };

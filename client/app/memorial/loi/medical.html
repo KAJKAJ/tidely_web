@@ -1,3 +1,4 @@
+
 <div>
 	<p></p>
   <div class="block-section">
@@ -9,6 +10,7 @@
 
   </div>
 
+   
   <form name="form" ng-submit="updateMedicalForm(form)" novalidate>
     <tabset  justified="true" type="pills">
       <tab heading="대리인 지정"><br><alert type="success">내가 치료법에 대한 결정을 직접 내릴 수 없는 때에 아래에 기록된 사람이 치료에 대한 최종적인 권한을 행사하도록 위임합니다.<br>만약 불가피한 사정으로 1순위 대리인이 결정을 내릴 수 없다면, 아래 2순위 대리인이 나의 권한을 위임받도록 지정합니다.</alert>
@@ -136,11 +138,11 @@
         </div>
       </tab>
     </tabset>
-      
+    <!-- <toaster-container toaster-options="{'position-class': 'toast-bottom-center', 'showDuration': '100', 'showEasing': 'swing','hideEasing': 'linear', 'timeOut': '100', 'showMethod': 'fadeIn', 'hideMethod': 'fadeOut'}"></toaster-container> -->       
+
+
     <div class="col-md-12">
-      <div ng-if="isSubmitted">
-        <div class="well well-lg">저장되었습니다.</div> 
-      </div>
+
       <button type="submit" class="btn btn-lg btn-success" ng-disabled="memorialForm.$invalid">저장</button>     
       <br/>
     </div>
