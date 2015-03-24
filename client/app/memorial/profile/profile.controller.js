@@ -42,6 +42,10 @@ angular.module('doresolApp')
       $scope.toggleAddNewSchoolFlag();
     }
 
+    $scope.removeItemFromArray = function(index, object){
+      object.splice(index,1);
+    }
+
     $scope.updateMemorial = function(form){
     	if(form.$valid){
     		Memorial.update($scope.copyMemorial.$id,
@@ -54,7 +58,8 @@ angular.module('doresolApp')
             description: $scope.copyMemorial.description?$scope.copyMemorial.description:null,
             public:$scope.copyMemorial.public,
 
-            wedding:$scope.copyMemorial.wedding
+            wedding:$scope.copyMemorial.wedding,
+            school : $scope.copyMemorial.school
     			}
     		).then(function(){
     			$scope.message = '저장되었습니다.';

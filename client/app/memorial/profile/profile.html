@@ -69,12 +69,44 @@
 				<h3>학교</h3>
 
 				<!-- School List -->
-				<div ng-repeat="school in copyMemorial.school">
-					{{school.name}}
+				<div ng-if="copyMemorial.school">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>
+									이름
+								</th>
+								<th>
+								  기간
+								</th>
+								<th>
+									설명
+								</th>
+								<th></th>
+							</tr>
+						</thead>
+							<tbody>
+							<tr ng-repeat="(key, school) in copyMemorial.school">
+								<td>
+									{{school.name}}
+								</td>
+								<td>
+									{{school.from}} <span ng-if="school.end">-</span> {{school.end}}
+								</td>
+								<td>
+									{{school.description}}
+								</td>
+								<td>
+									<i class="cursor fa fa-times-circle-o fa-2x text-danger" ng-click="removeItemFromArray(key,copyMemorial.school)"></i>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/>
 				</div>
 
 				<button type="button" class="btn btn-default" ng-click="toggleAddNewSchoolFlag()">
-				  <i class="fa fa-plus-square-o"></i> 추가 
+				  <i class="fa fa-plus-square-o"></i> New 
 				</button>
 				<br/><br/>
 
@@ -83,18 +115,18 @@
 					<div class="form-group">
 						<label class="col-md-3 control-label" for="new-school-name">학교 이름</label>
 						<div class="col-md-9">
-							<input type="text" id="example-text-input" name="new-school-name" class="form-control" ng-model="newSchool.name">
+							<input type="text" id="new-school-name" name="new-school-name" class="form-control" ng-model="newSchool.name">
 						</div>
 					</div>
-					<br/><br/>
+					<br/>
 
 					<div class="form-group">
 						<label class="col-md-3 control-label">기간</label>
-						<div class="input-group col-md-9">
+						<div class="col-md-9">
 							<input type="number" class="form-control" name="dateOfNewSchoolStart" min="1900" ng-model="newSchool.from" placeholder="시작연도"/>
 						</div>
 					</div>
-					<div class="input-group col-md-9 col-md-offset-3">
+					<div class="col-md-9 col-md-offset-3">
 						<input type="number" class="form-control" name="dateOfNewSchoolEnd" min="1900" ng-model="newSchool.end" placeholder="종료연도"/>
 					</div>
 					<br/>
@@ -102,18 +134,16 @@
 					<div class="form-group">
 						<label class="col-md-3 control-label" for="new-school-description">추가 정보</label>
 						<div class="col-md-9">
-							<input type="text" id="example-text-input" name="new-school-description" class="form-control" ng-model="newSchool.description">
+							<input type="text" id="new-school-description" name="new-school-description" class="form-control" ng-model="newSchool.description">
 						</div>
 					</div>
 					<br/>
 
 					<div>
 						<button type="button" class="btn btn-success" ng-disabled="!newSchool.name" ng-click="addNewSchool()">
-						  추가 
+						  Add 
 						</button>
 					</div>
-
-					<br/>
 				</div>
 
 
