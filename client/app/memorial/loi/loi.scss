@@ -1,0 +1,45 @@
+/*  */
+.brick-member{
+    margin-bottom: 10px;
+    
+    .overlay{
+        width:145px;
+        height:145px;
+        position: absolute;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        display:none;
+    }
+
+    .brick-member-detail:hover .overlay{
+        display: block;
+    }
+    
+    .overlay_detail{
+        opacity:1;
+        color:white;
+    }
+}
+
+/*  */
+.brick-waiting{
+    margin-bottom: 10px;
+    
+    .overlay{
+        width:145px;
+        height:145px;
+        position: absolute;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        display:none;
+    }
+
+    .brick-waiting-detail:hover .overlay{
+        display: block;
+    }
+    
+    .overlay_detail{
+        opacity:1;
+        color:white;
+    }
+}
