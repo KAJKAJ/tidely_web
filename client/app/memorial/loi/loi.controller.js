@@ -14,9 +14,18 @@ angular.module('doresolApp')
     $scope.watingsCnt = 0;
 
     $scope.memorial.$loaded().then(function(value) {
-      console.log('-----------');
-      console.log($scope.memorial.letter_of_intent.funeral.notice);
       $scope.leader = User.findById($scope.memorial.ref_user);
+
+      
+      if ($scope.memorial.letter_of_intent == null) {
+        $scope.memorial.letter_of_intent = {};
+      }
+      if ($scope.memorial.letter_of_intent.funeral == null) {
+        $scope.memorial.letter_of_intent.funeral = {};
+      }
+      if ($scope.memorial.letter_of_intent.medical_care == null) {
+        $scope.memorial.letter_of_intent.medical_care = {};
+      }
       User.setUsersObject($scope.memorial.ref_user);
     });
 
@@ -49,9 +58,11 @@ angular.module('doresolApp')
       };
     }
 
-    $scope.updateFuneralForm = function(form) {
+    // from waiting list to member list
+    $scope.updateForm = function(form) {
 
       if(form.$valid){
+
         Memorial.update($scope.memorialKey,
           {
             letter_of_intent: {
@@ -70,26 +81,6 @@ angular.module('doresolApp')
                         $scope.memorial.letter_of_intent.funeral.food : 0,
                 body: $scope.memorial.letter_of_intent.funeral.body ?
                         $scope.memorial.letter_of_intent.funeral.body : 0
-              },
-            }
-          }
-          
-        ).then(function(){
-          toaster.pop('success', null, "저장되었습니다");
-          $scope.message = '.';
-        });
-      }
-    };
-
-    // from waiting list to member list
-    $scope.updateMedicalForm = function(form) {
-
-      if(form.$valid){
-        Memorial.update($scope.memorialKey,
-          {
-            letter_of_intent: {
-              funeral: {
-                grave_choice: 'aaa'
               },
               medical_care: {
                 surviving_treatment: {
