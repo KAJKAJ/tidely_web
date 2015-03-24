@@ -15,18 +15,76 @@ angular.module('doresolApp')
 
     $scope.memorial.$loaded().then(function(value) {
       console.log('-----------');
-      console.log($scope.memorial.letter_of_intent.medical_care);
+      console.log($scope.memorial.letter_of_intent.funeral.notice);
       $scope.leader = User.findById($scope.memorial.ref_user);
       User.setUsersObject($scope.memorial.ref_user);
     });
+
+    $scope.changeItem = function( item, selectNum ) {
+
+      switch(item) {
+        case 'notice':
+          $scope.memorial.letter_of_intent.funeral.notice = selectNum;
+          break;
+        case 'guide':
+          $scope.memorial.letter_of_intent.funeral.guide = selectNum;
+          break;
+        case 'religion':
+          $scope.memorial.letter_of_intent.funeral.religion = selectNum;
+          break;
+        case 'duration':
+          $scope.memorial.letter_of_intent.funeral.duration = selectNum;
+          break;
+        case 'donation':
+          $scope.memorial.letter_of_intent.funeral.donation = selectNum;
+          break;
+        case 'food':
+          $scope.memorial.letter_of_intent.funeral.food = selectNum;
+          break;
+        case 'body':
+          $scope.memorial.letter_of_intent.funeral.body = selectNum;
+          break;
+        default:
+          break;
+      };
+    }
+
+    $scope.updateFuneralForm = function(form) {
+
+      if(form.$valid){
+        Memorial.update($scope.memorialKey,
+          {
+            letter_of_intent: {
+              funeral: {
+                notice: $scope.memorial.letter_of_intent.funeral.notice ?
+                        $scope.memorial.letter_of_intent.funeral.notice : 0,
+                guide: $scope.memorial.letter_of_intent.funeral.guide ?
+                        $scope.memorial.letter_of_intent.funeral.guide : 0,
+                religion: $scope.memorial.letter_of_intent.funeral.religion ?
+                        $scope.memorial.letter_of_intent.funeral.religion : 0,
+                duration: $scope.memorial.letter_of_intent.funeral.duration ?
+                        $scope.memorial.letter_of_intent.funeral.duration : 0,
+                donation: $scope.memorial.letter_of_intent.funeral.donation ?
+                        $scope.memorial.letter_of_intent.funeral.donation : 0,
+                food: $scope.memorial.letter_of_intent.funeral.food ?
+                        $scope.memorial.letter_of_intent.funeral.food : 0,
+                body: $scope.memorial.letter_of_intent.funeral.body ?
+                        $scope.memorial.letter_of_intent.funeral.body : 0
+              },
+            }
+          }
+          
+        ).then(function(){
+          toaster.pop('success', null, "저장되었습니다");
+          $scope.message = '.';
+        });
+      }
+    };
 
     // from waiting list to member list
     $scope.updateMedicalForm = function(form) {
 
       if(form.$valid){
-        console.log('updateMedicalForm');
-        console.log($scope.memorial);
-
         Memorial.update($scope.memorialKey,
           {
             letter_of_intent: {
@@ -45,13 +103,18 @@ angular.module('doresolApp')
                 },
 
                 agent: {
-                  name_1: $scope.memorial.letter_of_intent.medical_care.agent.name_1,
-                  relation_1: $scope.memorial.letter_of_intent.medical_care.agent.relation_1,
-                  tel_1: $scope.memorial.letter_of_intent.medical_care.agent.tel_1,
-
-                  name_2: $scope.memorial.letter_of_intent.medical_care.agent.name_2,
-                  relation_2: $scope.memorial.letter_of_intent.medical_care.agent.relation_2,
-                  tel_2: $scope.memorial.letter_of_intent.medical_care.agent.tel_2,
+                  name_1: $scope.memorial.letter_of_intent.medical_care.agent.name_1 ? 
+                          $scope.memorial.letter_of_intent.medical_care.agent.name_1: '',
+                  relation_1: $scope.memorial.letter_of_intent.medical_care.agent.relation_1 ?
+                          $scope.memorial.letter_of_intent.medical_care.agent.relation_1: '',
+                  tel_1: $scope.memorial.letter_of_intent.medical_care.agent.tel_1 ? 
+                          $scope.memorial.letter_of_intent.medical_care.agent.tel_1: '',
+                  name_2: $scope.memorial.letter_of_intent.medical_care.agent.name_2 ? 
+                            $scope.memorial.letter_of_intent.medical_care.agent.name_2: '',
+                  relation_2: $scope.memorial.letter_of_intent.medical_care.agent.relation_2 ?
+                              $scope.memorial.letter_of_intent.medical_care.agent.relation_2: '',
+                  tel_2: $scope.memorial.letter_of_intent.medical_care.agent.tel_2 ?
+                          $scope.memorial.letter_of_intent.medical_care.agent.tel_2: '',
                 }
               }
             }
@@ -63,9 +126,5 @@ angular.module('doresolApp')
         });
       }
     };
-
-    $scope.updateFuneralForm = function(form) {
-
-    }
 
   });

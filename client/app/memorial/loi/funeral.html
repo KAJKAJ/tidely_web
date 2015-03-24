@@ -5,141 +5,131 @@
     <div class="block-title">
         <h2><strong>사전 장례 의향서</strong></h2>
     </div>
-    <div class="well well-lg"><strong>나는 정신이 명료한 상태에서 직접 이 사전 의료 의향서를 작성합니다. <br>건강을 회복할 수 없는 상태가 되고, 진단과 치료에 대하여 나 스스로의 의사 표시가 불가능해질 때 담당 의료진과 가족들이 이 사전 의료 의향서에 기록된 나의 뜻을 존중해주시기 바랍니다. (나는 언제라도 이 사전의료의향서를 직접 변경하거나 철회할 수 있음을 알고 있습니다.)</strong>
+    <div class="well well-lg"><strong>나는 사망진단이 내려진 후 나를 위한 여러 장례의식과 절차가 내가 바라는 형식대로 치러지기를 원해 나의 뜻을 알리고자 이 사전장례의향서를 작성한다. <br> 나를 위한 여러 장례의식과 절차는 다음에 표시한대로 해주기 바란다.</strong>
     </div>
 
   </div>
-
    
-  <form name="form" ng-submit="updateMedicalForm(form)" novalidate>
-    <tabset  justified="true" type="pills">
-      <tab heading="대리인 지정"><br><alert type="success">내가 치료법에 대한 결정을 직접 내릴 수 없는 때에 아래에 기록된 사람이 치료에 대한 최종적인 권한을 행사하도록 위임합니다.<br>만약 불가피한 사정으로 1순위 대리인이 결정을 내릴 수 없다면, 아래 2순위 대리인이 나의 권한을 위임받도록 지정합니다.</alert>
+  <form name="form" ng-submit="updateFuneralForm(form)" novalidate>
       <div class="divider"/>
-        1순위 대리인
         <div class="row">
-          <div class="col-sm-8">
-            <div class="input-group">
-              <span class="input-group-addon">대리인 이름</span>
-              <input type="text" class="form-control" name="medicalcare_agent_name_1" placeholder="이름을 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.name_1">
-            </div>
+          <div class="col-sm-2">
+            <strong>나의 부고 사실을 </strong>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-8">
-            <div class="input-group">
-              <span class="input-group-addon">관계 </span>
-              <input type="text" class="form-control" name="medicalcare_agent_relation_1" placeholder="본인과의 관계를 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.relation_1">
-            </div>
+          <div class="list-group col-sm-4">
+            <span class="list-group-item" ng-click="changeItem('notice', 1)" ng-class="{ active: memorial.letter_of_intent.funeral.notice == 1}">
+              <p class="list-group-item-text">널리 알리기 바란다</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('notice', 2)" ng-class="{active: memorial.letter_of_intent.funeral.notice == 2}">
+              <p class="list-group-item-text">알려야 할 사람에게만 알리기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('notice', 3)" ng-class="{active: memorial.letter_of_intent.funeral.notice == 3}">
+              <p class="list-group-item-text">장례식을 치르고 난 후에 알리기 바란다.</p>
+            </span>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-8">
-            <div class="input-group">
-              <span class="input-group-addon">연락처</span>
-              <input type="text" class="form-control" name="medicalcare_agent_tel_1" placeholder="이름을 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.tel_1">
-            </div>
-          </div>
-        </div>
-        <div class="divider"/>
-        2순위 대리인
-        <div class="row">
-          <div class="col-sm-8">
-            <div class="input-group">
-              <span class="input-group-addon">대리인 이름</span>
-              <input type="text" class="form-control" name="medicalcare_agent_name_2" placeholder="이름을 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.name_2">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-8">
-            <div class="input-group">
-              <span class="input-group-addon">관계 </span>
-              <input type="text" class="form-control" name="medicalcare_agent_relation_2" placeholder="본인과의 관계를 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.relation_2">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-8">
-            <div class="input-group">
-              <span class="input-group-addon">연락처</span>
-              <input type="text" class="form-control" name="medicalcare_agent_tel_2" placeholder="연락처를 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.tel_2">
-            </div>
-          </div>
-        </div>
-      </tab>
-      <tab heading="적용 시기 결정"><br><alert type="success">다음과 같은 건강과 정신 상태에서 이 사전 의료 의향서의 뜻을 반영해주십시오.</alert>
-        <div class="row">
-          <div class="col-sm-4">
-            <strong>뇌기능의 심각한 장애 시 &nbsp;&nbsp;</strong>
-          </div>
-          <div class="col-sm-8">
-            <label class="switch switch-success" for="medicalcare_brain">
-              <input type="checkbox" id="medicalcare_brain" name="medicalcare_brain" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.brain">
-              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
-            </label>
-            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.brain" class="public-label"> 연명치료를 원합니다.</label>
-            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.brain" class="public-label"> 연명치료를 원하지 않습니다.</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <strong>질병의 말기시</strong>
-          </div>
-          <div class="col-sm-8">
-            <label class="switch switch-success" for="medicalcare_dying">
-              <input type="checkbox" id="medicalcare_dying" name="medicalcare_dying" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.dying">
-              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
-            </label>
-            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.dying" class="public-label"> 연명치료를 원합니다.</label>
-            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.dying" class="public-label"> 연명치료를 원하지 않습니다.</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <strong>노령과 관련된 죽음을 닥쳤을 시</strong>
-          </div>
-          <div class="col-sm-8">
-            <label class="switch switch-success" for="medicalcare_old">
-              <input type="checkbox" id="medicalcare_old" name="medicalcare_old" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.old">
-              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
-            </label>
-            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.old" class="public-label"> 연명치료를 원합니다.</label>
-            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.old" class="public-label"> 연명치료를 원하지 않습니다.</label>
-          </div>
-        </div>
-      </tab>
-      <tab heading="연명 치료 거절">      
-        <br><alert type="success">건강을 회복할 수 없는 상태에서 생명유지장치를 사용한  연명치료가 신체적, 정신적 고통만 증가시키며 죽음의 과정을 무의미하게 연장한다면 다음의 선택을 존중해주십시오.</alert>
-        <div class="row">
-          <div class="col-sm-4">
-            <strong>생명 유지 장치가 필요할 경우</strong>
-          </div>
-          <div class="col-sm-8">
-            <label class="switch switch-success" for="medicalcare_life_support">
-              <input type="checkbox" id="medicalcare_life_support" name="medicalcare_life_support" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.life_support">
-              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
-            </label>
-            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.life_support" class="public-label"> 원합니다.</label>
-            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.life_support" class="public-label"> 원하지 않습니다.</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <strong>인위적인 영양 공급을 </strong>
-          </div>
-          <div>
-            <label class="switch switch-success" for="medicalcare_nutrition">
-              <input type="checkbox" id="medicalcare_nutrition" name="medicalcare_nutrition" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.nutrition">
-              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
-            </label>
-            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.nutrition" class="public-label"> 원합니다.</label>
-            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.nutrition" class="public-label"> 원하지 않습니다.</label>
-          </div>
-        </div>
-      </tab>
-    </tabset>
-    <!-- <toaster-container toaster-options="{'position-class': 'toast-bottom-center', 'showDuration': '100', 'showEasing': 'swing','hideEasing': 'linear', 'timeOut': '100', 'showMethod': 'fadeIn', 'hideMethod': 'fadeOut'}"></toaster-container> -->       
+        </div><!-- /.row -->
 
+        <div class="row">
+          <div class="col-sm-2">
+            <strong>나의 장례식은 </strong>
+          </div>
+          <div class="list-group col-sm-4">
+            <span class="list-group-item" ng-click="changeItem('guide', 1)" ng-class="{ active: memorial.letter_of_intent.funeral.guide == 1}">
+              <p class="list-group-item-text">우리나라 장례문화를 바르게 이해하고 전통문화를 계승하는 차원에서 해주기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('guide', 2)" ng-class="{active: memorial.letter_of_intent.funeral.guide == 2}">
+              <p class="list-group-item-text">가급적 간소하게 치르기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('guide', 3)" ng-class="{active: memorial.letter_of_intent.funeral.guide == 3}">
+              <p class="list-group-item-text">가족과 친지들만이 모여 치르기 바란다.</p>
+            </span>
+          </div>
+        </div><!-- /.row -->
+
+        <div class="row">
+          <div class="col-sm-2">
+            <strong>장례 형식은</strong>
+          </div>
+          <div class="list-group col-sm-4">
+            <span class="list-group-item" ng-click="changeItem('religion', 1)" ng-class="{ active: memorial.letter_of_intent.funeral.religion == 1}">
+              <p class="list-group-item-text">전통(유교)식으로</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('religion', 2)" ng-class="{active: memorial.letter_of_intent.funeral.religion == 2}">
+              <p class="list-group-item-text">불교식으로</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('religion', 3)" ng-class="{active: memorial.letter_of_intent.funeral.religion == 3}">
+              <p class="list-group-item-text">기독교식으로</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('religion', 4)" ng-class="{active: memorial.letter_of_intent.funeral.religion == 4}">
+              <p class="list-group-item-text">천주교식으로</p>
+            </span>            
+            <span class="list-group-item" ng-click="changeItem('religion', 5)" ng-class="{active: memorial.letter_of_intent.funeral.religion == 5}">
+              <p class="list-group-item-text">기타(지정)</p>
+            </span>            
+          </div>
+        </div><!-- /.row -->
+      
+        <div class="row">
+          <div class="col-sm-2">
+            <strong>장례 일수는</strong>
+          </div>
+          <div class="list-group col-sm-4">
+            <span class="list-group-item" ng-click="changeItem('duration', 1)" ng-class="{ active: memorial.letter_of_intent.funeral.duration == 1}">
+              <p class="list-group-item-text">가급적 3일 또는 5일장을 지켜주기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('duration', 2)" ng-class="{active: memorial.letter_of_intent.funeral.duration == 2}">
+              <p class="list-group-item-text">날수(기간)에 구애 받지 말고 형편대로 해주기 바란다.</p>
+            </span>
+          </div>
+        </div><!-- /.row -->
+
+        <div class="row">
+          <div class="col-sm-2">
+            <strong>부의금 및 조화</strong>
+          </div>
+          <div class="list-group col-sm-4">
+            <span class="list-group-item" ng-click="changeItem('donation', 1)" ng-class="{ active: memorial.letter_of_intent.funeral.donation == 1}">
+              <p class="list-group-item-text">관례에 따라 하기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('donation', 2)" ng-class="{active: memorial.letter_of_intent.funeral.donation == 2}">
+              <p class="list-group-item-text">가급적 제한하기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('donation', 3)" ng-class="{active: memorial.letter_of_intent.funeral.donation == 3}">
+              <p class="list-group-item-text">일체 받지 않기 바란다.</p>
+            </span>
+          </div>
+        </div><!-- /.row -->
+
+        <div class="row">
+          <div class="col-sm-2">
+            <strong>음식 대접</strong>
+          </div>
+          <div class="list-group col-sm-4">
+            <span class="list-group-item" ng-click="changeItem('food', 1)" ng-class="{ active: memorial.letter_of_intent.funeral.food == 1}">
+              <p class="list-group-item-text">잘 대접해주기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('food', 2)" ng-class="{active: memorial.letter_of_intent.funeral.food == 2}">
+              <p class="list-group-item-text">간단한 다과를 정성스럽게 대접해주기 바란다.</p>
+            </span>
+          </div>
+        </div><!-- /.row -->
+
+        <div class="row">
+          <div class="col-sm-2">
+            <strong>시신 처리</strong>
+          </div>
+          <div class="list-group col-sm-4">
+            <span class="list-group-item" ng-click="changeItem('body', 1)" ng-class="{ active: memorial.letter_of_intent.funeral.body == 1}">
+              <p class="list-group-item-text">내가 이미 약정한 대로 의학적 연구 및 조직 활용 목적으로 기증하기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('body', 2)" ng-class="{active: memorial.letter_of_intent.funeral.body == 2}">
+              <p class="list-group-item-text">화장해주기 바란다.</p>
+            </span>
+            <span class="list-group-item" ng-click="changeItem('body', 3)" ng-class="{active: memorial.letter_of_intent.funeral.body == 3}">
+              <p class="list-group-item-text">매장해주기 바란다.</p>
+            </span>
+          </div>
+        </div><!-- /.row -->
 
     <div class="col-md-12">
 
@@ -148,7 +138,3 @@
     </div>
   </form>
 </div>
-
-
-
-
