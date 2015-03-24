@@ -1,30 +1,154 @@
+
 <div>
-	<p></p>
+  <p></p>
   <div class="block-section">
     <div class="block-title">
-        <h2><strong>사전 의료 의향서</strong></h2>
+        <h2><strong>사전 장례 의향서</strong></h2>
     </div>
-        <p> 나는 정신이 명료한 상태에서 직접 이 사전 의료 의향서를 작성합니다. 건강을 회복할 수 없는 상태가 되고, 진단과 치료에 대하여 나 스스로의 의사 표시가 불가능해질 때 담당 의료진과 가족들이 이 사전 의료 의향서에 기록된 나의 뜻을 존중해주시기 바랍니다. (나는 언제라도 이 사전의료의향서를 직접 변경하거나 철회할 수 있음을 알고 있습니다.)
-        </p>
+    <div class="well well-lg"><strong>나는 정신이 명료한 상태에서 직접 이 사전 의료 의향서를 작성합니다. <br>건강을 회복할 수 없는 상태가 되고, 진단과 치료에 대하여 나 스스로의 의사 표시가 불가능해질 때 담당 의료진과 가족들이 이 사전 의료 의향서에 기록된 나의 뜻을 존중해주시기 바랍니다. (나는 언제라도 이 사전의료의향서를 직접 변경하거나 철회할 수 있음을 알고 있습니다.)</strong>
+    </div>
 
   </div>
 
-  <form name="memorialForm" ng-submit="updateForm(memorialForm)" novalidate>
-    <div class="block-title">
-      <h2><strong>적용시기</strong></h2>
-      <p>다음과 같은 건강과 정신 상태에서 이 사전 의료 의향서의 뜻을 반영해주십시요.</p>
-    </div>
-    <div class="form-group">
-      <label class="switch switch-success" for="medicalcare_brain">
-        <input type="checkbox" id="medicalcare_brain" name="medicalcare_brain" ng-model="memorial.medicalcare.brain">
-        <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
-      </label>
-      <label ng-if="memorial.medicalcare.brain" class="public-label"> 연명치료를 원합니다.</label>
-      <label ng-if="!memorial.medicalcare.brain" class="public-label"> 연명치료를 원하지 않습니다.</label>
-    </div>
+   
+  <form name="form" ng-submit="updateMedicalForm(form)" novalidate>
+    <tabset  justified="true" type="pills">
+      <tab heading="대리인 지정"><br><alert type="success">내가 치료법에 대한 결정을 직접 내릴 수 없는 때에 아래에 기록된 사람이 치료에 대한 최종적인 권한을 행사하도록 위임합니다.<br>만약 불가피한 사정으로 1순위 대리인이 결정을 내릴 수 없다면, 아래 2순위 대리인이 나의 권한을 위임받도록 지정합니다.</alert>
+      <div class="divider"/>
+        1순위 대리인
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="input-group">
+              <span class="input-group-addon">대리인 이름</span>
+              <input type="text" class="form-control" name="medicalcare_agent_name_1" placeholder="이름을 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.name_1">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="input-group">
+              <span class="input-group-addon">관계 </span>
+              <input type="text" class="form-control" name="medicalcare_agent_relation_1" placeholder="본인과의 관계를 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.relation_1">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="input-group">
+              <span class="input-group-addon">연락처</span>
+              <input type="text" class="form-control" name="medicalcare_agent_tel_1" placeholder="이름을 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.tel_1">
+            </div>
+          </div>
+        </div>
+        <div class="divider"/>
+        2순위 대리인
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="input-group">
+              <span class="input-group-addon">대리인 이름</span>
+              <input type="text" class="form-control" name="medicalcare_agent_name_2" placeholder="이름을 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.name_2">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="input-group">
+              <span class="input-group-addon">관계 </span>
+              <input type="text" class="form-control" name="medicalcare_agent_relation_2" placeholder="본인과의 관계를 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.relation_2">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="input-group">
+              <span class="input-group-addon">연락처</span>
+              <input type="text" class="form-control" name="medicalcare_agent_tel_2" placeholder="연락처를 입력하세요" ng-model="memorial.letter_of_intent.medical_care.agent.tel_2">
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab heading="적용 시기 결정"><br><alert type="success">다음과 같은 건강과 정신 상태에서 이 사전 의료 의향서의 뜻을 반영해주십시오.</alert>
+        <div class="row">
+          <div class="col-sm-4">
+            <strong>뇌기능의 심각한 장애 시 &nbsp;&nbsp;</strong>
+          </div>
+          <div class="col-sm-8">
+            <label class="switch switch-success" for="medicalcare_brain">
+              <input type="checkbox" id="medicalcare_brain" name="medicalcare_brain" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.brain">
+              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
+            </label>
+            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.brain" class="public-label"> 연명치료를 원합니다.</label>
+            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.brain" class="public-label"> 연명치료를 원하지 않습니다.</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <strong>질병의 말기시</strong>
+          </div>
+          <div class="col-sm-8">
+            <label class="switch switch-success" for="medicalcare_dying">
+              <input type="checkbox" id="medicalcare_dying" name="medicalcare_dying" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.dying">
+              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
+            </label>
+            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.dying" class="public-label"> 연명치료를 원합니다.</label>
+            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.dying" class="public-label"> 연명치료를 원하지 않습니다.</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <strong>노령과 관련된 죽음을 닥쳤을 시</strong>
+          </div>
+          <div class="col-sm-8">
+            <label class="switch switch-success" for="medicalcare_old">
+              <input type="checkbox" id="medicalcare_old" name="medicalcare_old" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.old">
+              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
+            </label>
+            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.old" class="public-label"> 연명치료를 원합니다.</label>
+            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.old" class="public-label"> 연명치료를 원하지 않습니다.</label>
+          </div>
+        </div>
+      </tab>
+      <tab heading="연명 치료 거절">      
+        <br><alert type="success">건강을 회복할 수 없는 상태에서 생명유지장치를 사용한  연명치료가 신체적, 정신적 고통만 증가시키며 죽음의 과정을 무의미하게 연장한다면 다음의 선택을 존중해주십시오.</alert>
+        <div class="row">
+          <div class="col-sm-4">
+            <strong>생명 유지 장치가 필요할 경우</strong>
+          </div>
+          <div class="col-sm-8">
+            <label class="switch switch-success" for="medicalcare_life_support">
+              <input type="checkbox" id="medicalcare_life_support" name="medicalcare_life_support" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.life_support">
+              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
+            </label>
+            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.life_support" class="public-label"> 원합니다.</label>
+            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.life_support" class="public-label"> 원하지 않습니다.</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <strong>인위적인 영양 공급을 </strong>
+          </div>
+          <div>
+            <label class="switch switch-success" for="medicalcare_nutrition">
+              <input type="checkbox" id="medicalcare_nutrition" name="medicalcare_nutrition" ng-model="memorial.letter_of_intent.medical_care.surviving_treatment.nutrition">
+              <span tooltip-placement="left" tooltip="뇌기능의 심각한 장애"></span>
+            </label>
+            <label ng-if="memorial.letter_of_intent.medical_care.surviving_treatment.nutrition" class="public-label"> 원합니다.</label>
+            <label ng-if="!memorial.letter_of_intent.medical_care.surviving_treatment.nutrition" class="public-label"> 원하지 않습니다.</label>
+          </div>
+        </div>
+      </tab>
+    </tabset>
+    <!-- <toaster-container toaster-options="{'position-class': 'toast-bottom-center', 'showDuration': '100', 'showEasing': 'swing','hideEasing': 'linear', 'timeOut': '100', 'showMethod': 'fadeIn', 'hideMethod': 'fadeOut'}"></toaster-container> -->       
+
+
     <div class="col-md-12">
-      <button type="submit" class="btn btn-lg btn-success" ng-disabled="memorialForm.$invalid">의향서 저장</button>     
+
+      <button type="submit" class="btn btn-lg btn-success" ng-disabled="memorialForm.$invalid">저장</button>     
       <br/>
     </div>
   </form>
 </div>
+
+
+
+
