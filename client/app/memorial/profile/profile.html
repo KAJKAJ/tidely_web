@@ -1,5 +1,5 @@
 <div>
-	<div ng-if="isOwner">
+	<!-- <div ng-if="isOwner"> -->
 		<form name="memorialForm" ng-submit="updateMemorial(memorialForm)" novalidate>
 			<!-- <tabset>
 				<tab heading="heading"></tab>
@@ -280,19 +280,17 @@
 			</div>
 
 		  <div class="col-md-12">
-				<button type="submit" class="btn btn-lg btn-success" ng-disabled="fileUploading||memorialForm.$invalid">프로필 저장</button>		  
+				<button type="submit" class="btn btn-lg btn-success" ng-disabled="!isOwner||fileUploading||memorialForm.$invalid">프로필 저장</button>		  
 				<br/>
-				<p>{{message}}</p>
 			</div>
 		</form>
 
-	</div>
+	<!-- </div> -->
 
-	<div ng-if="!isOwner">
+	<!-- <div ng-if="!isOwner">
 		<ul class="list-group">
 		  <li class="list-group-item">이름: {{memorial.name}}</li>
 		  <li class="list-group-item">태어나신 날: {{memorial.dateOfBirth}}</li>
-		  <!-- <li class="list-group-item">돌아가신 날: {{memorial.dateOfDeath}}</li> -->
 		</ul>
-	</div>
+	</div> -->
 </div>

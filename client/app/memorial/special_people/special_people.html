@@ -1,0 +1,18 @@
+<div>
+	<form name="memorialForm" ng-submit="updateMemorial(memorialForm)" novalidate>
+		<!-- Family  -->
+		<div ng-include="'app/memorial/special_people/family.html'"></div>
+
+		<!-- Friend  -->
+		<div ng-include="'app/memorial/special_people/friend.html'"></div>
+
+		<!-- Other  -->
+		<div ng-include="'app/memorial/special_people/other.html'"></div>
+
+		<!-- Save  -->
+	  <div class="col-md-12">
+			<button type="submit" class="btn btn-lg btn-success" ng-disabled="!isOwner">저장</button>		  
+			<br/>
+		</div>
+	</form>
+</div>

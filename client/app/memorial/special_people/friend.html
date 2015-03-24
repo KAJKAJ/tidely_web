@@ -1,0 +1,93 @@
+<div class="col-md-8">
+	<div class="divider"></div>
+	<h3>친구</h3>
+
+	<!-- List -->
+	<div ng-if="copyMemorial.special_people.friend">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>
+						이름
+					</th>
+					<th>
+					  관계
+					</th>
+					<th>
+						연락처
+					</th>
+					<th>
+						기타
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+				<tbody>
+				<tr ng-repeat="(key, person) in copyMemorial.special_people.friend">
+					<td>
+						{{person.name}}
+					</td>
+					<td>
+						{{person.relationship}}
+					</td>
+					<td>
+						{{person.contact}}
+					</td>
+					<td>
+						{{person.description}}
+					</td>
+					<td>
+						<i class="cursor fa fa-times-circle-o fa-2x text-danger" ng-click="removeItemFromObject(key,copyMemorial.special_people.friend)"></i>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+	</div>
+
+	<button type="button" class="btn btn-default" ng-click="toggleAddNewFriendFlag()">
+	  <i class="fa fa-plus-square-o"></i> New 
+	</button>
+	<br/><br/>
+
+	<!-- new Friend -->
+	<div class="well" ng-if="addNewFriendFlag">
+		<div class="form-group">
+			<label class="col-md-3 control-label" for="new-friend-name">이름</label>
+			<div class="col-md-9">
+				<input type="text" id="new-friend-name" name="new-friend-name" class="form-control" ng-model="newFriend.name">
+			</div>
+		</div>
+		<br/>
+
+		<div class="form-group">
+			<label class="col-md-3 control-label" for="new-friend-relationship">관계</label>
+			<div class="col-md-9">
+				<input type="text" id="new-friend-relationship" name="new-friend-relationship" class="form-control" ng-model="newFriend.relationship">
+			</div>
+		</div>
+		<br/>
+
+		<div class="form-group">
+			<label class="col-md-3 control-label" for="new-friend-contact">연락처</label>
+			<div class="col-md-9">
+				<input type="text" id="new-friend-contact" name="new-friend-contact" class="form-control" ng-model="newFriend.contact">
+			</div>
+		</div>
+		<br/>
+
+		<div class="form-group">
+			<label class="col-md-3 control-label" for="new-friend-description">기타</label>
+			<div class="col-md-9">
+				<input type="text" id="new-friend-description" name="new-friend-description" class="form-control" ng-model="newFriend.description">
+			</div>
+		</div>
+		<br/>
+
+		<div>
+			<button type="button" class="btn btn-success" ng-disabled="!newFriend.name" ng-click="addNewFriend()">
+			  Add 
+			</button>
+		</div>
+	</div>
+</div>

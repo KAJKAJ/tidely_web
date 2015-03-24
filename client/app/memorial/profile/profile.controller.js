@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('doresolApp')
-  .controller('ProfileCtrl', function ($scope,$stateParams,Util,Composite,$state,User,Memorial) {
+  .controller('ProfileCtrl', function ($scope,$stateParams,Util,Composite,$state,User,Memorial,toaster) {
     $scope.today = Date.now();
     
     $scope.currentUser = User.getCurrentUser();
@@ -88,7 +88,7 @@ angular.module('doresolApp')
             bloodType: $scope.copyMemorial.bloodType
     			}
     		).then(function(){
-    			$scope.message = '저장되었습니다.';
+    			toaster.pop('success', null, "저장되었습니다");
     		});
     	}
     }
