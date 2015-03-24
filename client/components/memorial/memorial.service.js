@@ -126,6 +126,18 @@
 		// });
 	}
 
+	var createInstruction = function(memorialId, instructionItem){
+		var instructionRef = ref.child(memorialId + '/instruction');
+		var instruction = $firebase(instructionRef);
+		return instruction.$push(instructionItem);
+	}
+
+	var removeInstruction = function(memorialId, instructionId){
+		var instructionRef = ref.child(memorialId + '/instruction');
+		var instruction = $firebase(instructionRef);
+		return  instruction.$remove(instructionId);
+	}
+
 	var createEra = function(memorialId, eraItem) {
 		var eraRef = ref.child(memorialId + '/timeline/era');
 		var era = $firebase(eraRef);
@@ -240,6 +252,9 @@
     fetchMyWaitingMemorials:fetchMyWaitingMemorials,
     setMemorialSummary:setMemorialSummary,
 
+    createInstruction:createInstruction,
+    removeInstruction:removeInstruction,
+    
 		createEra:createEra,
 		updateEra:updateEra,
 		removeEra:removeEra,

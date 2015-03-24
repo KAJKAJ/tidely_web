@@ -1,0 +1,85 @@
+<div ng-if="isOwner">
+	<div class="col-md-6">
+		<div class="block">
+	      <div class="block-title">
+	          <h2><strong><i class="fa fa-envelope-o"></i></strong> NEW</h2>
+	      </div>
+	      <form  name="newInstructionForm" class="block-content-full block-content-mini-padding" ng-submit="createNewInstruction(newInstructionForm)" novalidate>
+	      	<select class="form-control" ng-model="newInstruction.person" ng-options="person as person.name for person in peopleOption">
+	      		<option value="">모두에게..</option>
+					  <!-- <option ng-repeat="person in memorial.special_people.family" value="person.name">{{person.name}} <span ng-if="person.relationship"> - {{person.relationship}}</span></option> -->
+					</select>
+					<br/>
+
+	        <textarea class="form-control" ng-model="newInstruction.text" rows="2" placeholder="전하고 싶은 이야기.." style="resize: vertical;margin: 1px 0px 10px;" ng-required="true"/>
+	        <div class="clearfix">
+	          <button type="submit" class="btn btn-sm btn-success pull-right" ng-disabled="newInstructionForm.$invalid"><i class="fa fa-pencil"></i> 등록</button>
+	        </div>
+	      </form>
+	  </div>
+  </div>
+  <div class="col-md-6"></div>
+
+  <div class="col-md-12"></div>
+  <!-- List -->
+  <div class="col-md-6">
+  	<!-- <div ng-repeat="instructionKey in instructionArray" class="well">
+  		{{instructionObject[instructionKey].text}}
+  	</div> -->
+
+  	<!-- <div class="block" ng-repeat="instructionKey in instructionArray" >
+      <div class="block-title">
+      	<h2>
+	      	<span ng-if="instructionObject[instructionKey].person">To: {{instructionObject[instructionKey].person.name}}</span>
+	      	<span ng-if="!instructionObject[instructionKey].person">To: 모두에게</span>
+      	</h2>
+      </div>
+      
+	  </div> -->
+
+	  <ul class="storyline media-list" ng-if="instructionArray.length > 0">
+		  <li class="storyline-story media" ng-repeat="instructionKey in instructionArray">
+	      <div class="block">
+	        <!-- Block with Options Title -->
+	        <div class="block-title">
+            <div class="block-options pull-right">
+              <span class="btn btn-alt btn-sm btn-default" ng-if="isOwner" ng-click="removeInstruction(instructionKey)" tooltip-placement="top" tooltip="삭제" >
+                <i class="fa fa-times"></i>
+              </span>
+            </div>
+            <h4>
+			      	<span ng-if="instructionObject[instructionKey].person">To: {{instructionObject[instructionKey].person.name}}</span>
+			      	<span ng-if="!instructionObject[instructionKey].person">To: 모두에게</span>
+			      	<span class="text-muted">
+                <small> - {{instructionObject[instructionKey].fromNow}}</small>
+                <!-- <span class="text-success"><i class="fa fa-globe" tooltip-placement="right" tooltip="웹" ></i></span> -->
+              </span>
+		      	</h4>
+            <!-- <div class="storyline-story-title">
+              <div class="story-avatar">
+                <img ng-src="{{users[story.ref_user].profile.file.url}}" style="width:32px;height:32px;"/>
+              </div>
+              <div class="story-author">
+                <div class="story-show">
+                  <a><strong>{{users[story.ref_user].profile.name}}</strong></a>
+                </div>
+                <span class="text-muted">
+                  <small>{{story.fromNow}}</small>
+                  <span class="text-success"><i class="fa fa-globe" tooltip-placement="right" tooltip="웹" ></i></span>
+                </span>
+              </div>
+            </div> -->
+	        </div>
+	        <!-- END Block with Options Title -->
+
+	        <!-- Block with Options Content -->
+	        
+	        <div class="media-body">
+            <p>{{instructionObject[instructionKey].text}}</p>
+	        </div>
+	      </div>
+		  </li>
+		</ul>
+  </div>
+  <div class="col-md-6"></div>
+</div>
