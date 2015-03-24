@@ -29,32 +29,63 @@ angular.module('doresolApp')
     $scope.newSchool = {};
     $scope.addNewSchoolFlag = false;
 
+    $scope.newWork= {};
+    $scope.addNewWorkFlag = false;
+
     $scope.toggleAddNewSchoolFlag = function(){
       $scope.addNewSchoolFlag = !$scope.addNewSchoolFlag;
     }
 
+    $scope.toggleAddNewWorkFlag = function(){
+      $scope.addNewWorkFlag = !$scope.addNewWorkFlag;
+    }
+
     $scope.addNewSchool = function(){
       if(!$scope.copyMemorial.school){
-        $scope.copyMemorial.school = [];
+        $scope.copyMemorial.school = {};
       }
-      $scope.copyMemorial.school.push($scope.newSchool);
+      // $scope.copyMemorial.school.push($scope.newSchool);
+      var key = Util.getUniqueId();
+
+      $scope.copyMemorial.school[key] = $scope.newSchool;
       $scope.newSchool = {};
       $scope.toggleAddNewSchoolFlag();
+    }
+
+    $scope.addNewWork = function(){
+      if(!$scope.copyMemorial.work){
+        $scope.copyMemorial.work = {};
+      }
+      // $scope.copyMemorial.school.push($scope.newSchool);
+      var key = Util.getUniqueId();
+
+      $scope.copyMemorial.work[key] = $scope.newWork;
+      $scope.newWork = {};
+      $scope.toggleAddNewWorkFlag();
+    }
+
+    $scope.removeItemFromObject = function(index, object){
+      delete object[index];
     }
 
     $scope.updateMemorial = function(form){
     	if(form.$valid){
     		Memorial.update($scope.copyMemorial.$id,
     			{
-    				name:$scope.copyMemorial.name,
-    				dateOfBirth:moment($scope.copyMemorial.dateOfBirth).format("YYYY-MM-DD"),
+    				name : $scope.copyMemorial.name,
+    				dateOfBirth : moment($scope.copyMemorial.dateOfBirth).format("YYYY-MM-DD"),
     				// dateOfDeath:moment($scope.copyMemorial.dateOfDeath).format("YYYY-MM-DD"),
-            dateOfDeath:moment().format("YYYY-MM-DD"),
+            dateOfDeath : moment().format("YYYY-MM-DD"),
 
-            description: $scope.copyMemorial.description?$scope.copyMemorial.description:null,
-            public:$scope.copyMemorial.public,
+            description : $scope.copyMemorial.description?$scope.copyMemorial.description:null,
+            public : $scope.copyMemorial.public,
 
-            wedding:$scope.copyMemorial.wedding
+            wedding : $scope.copyMemorial.wedding,
+            school : $scope.copyMemorial.school,
+            work : $scope.copyMemorial.work,
+            height: $scope.copyMemorial.height,
+            weight: $scope.copyMemorial.weight,
+            bloodType: $scope.copyMemorial.bloodType
     			}
     		).then(function(){
     			$scope.message = '저장되었습니다.';
