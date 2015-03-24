@@ -17,7 +17,8 @@ angular.module('doresolApp', [
   'ngAnimate',
   'videosharing-embed',
   'ngDialog',
-  'ezfb'
+  'ezfb',
+  'ui.bootstrap-slider'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

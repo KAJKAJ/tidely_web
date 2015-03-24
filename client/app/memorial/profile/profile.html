@@ -44,23 +44,35 @@
 				</div>
 				<br/>
 
-				<div class="input-group">
-				  <span class="input-group-addon">키</span>
-				  <input type="number" class="form-control" min="0" name="height" placeholder="키를 입력하세요" ng-model="copyMemorial.height">
-				  <span class="input-group-addon">cm</span>
+				<div class="form-group">
+					<div class="col-md-2">
+						신장 (cm)
+					</div>
+					<div class="col-md-10">
+						<slider ng-model="copyMemorial.height" min="0" step="1" max="250"></slider> 
+					</div>
 				</div>
 				<br/>
 
-				<div class="input-group">
-				  <span class="input-group-addon">몸무게</span>
-				  <input type="number" class="form-control" min="0" name="weight" placeholder="몸무게를 입력하세요" ng-model="copyMemorial.weight">
-				  <span class="input-group-addon">kg</span>
+				<div class="form-group">
+					<div class="col-md-2">
+						몸무게 (kg)
+					</div>
+					<div class="col-md-10">
+						<slider ng-model="copyMemorial.weight" min="0" step="1" max="150"></slider> 
+					</div>					
 				</div>
 				<br/>
 
-
-				소개글
-				<textarea class="form-control" ng-model="copyMemorial.description" rows="5" placeholder="소개글을 입력하세요.." style="resize: vertical;margin: 1px 0px 10px;"/>
+				<div class="form-group">
+					<div class="col-md-2">
+						소개글
+					</div>
+					<div class="col-md-10">
+						<textarea class="form-control" ng-model="copyMemorial.description" placeholder="소개글을 입력하세요.." style="resize: vertical;margin: 1px 0px 10px;"/>
+					</div>					
+				</div>
+				<br/><br/>					
 				
 				<div class="divider"/>
 				<h3>결혼</h3>

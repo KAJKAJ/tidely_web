@@ -29,7 +29,8 @@
     "angular-animate": "~1.2.24",
     "ng-videosharing-embed": "~0.2.3",
     "ngDialog": "~0.3.0",
-    "angular-easyfb": "~1.1.0"
+    "angular-easyfb": "~1.1.0",
+    "angular-bootstrap-slider": "~0.1.1"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
