@@ -15,7 +15,7 @@ angular.module('doresolApp')
 
     $scope.memorial.$loaded().then(function(value) {
       console.log('-----------');
-      console.log($scope.memorial);
+      console.log($scope.memorial.letter_of_intent.medical_care.brain);
       $scope.leader = User.findById($scope.memorial.ref_user);
       User.setUsersObject($scope.memorial.ref_user);
     });
@@ -24,6 +24,9 @@ angular.module('doresolApp')
     $scope.updateMedicalForm = function(form) {
 
       if(form.$valid){
+        console.log('updateMedicalForm');
+        console.log($scope.memorial);
+
         Memorial.update($scope.memorialKey,
 
           {
@@ -33,14 +36,14 @@ angular.module('doresolApp')
               },
               medical_care: {
                 surviving_treatment: {
-                  brain: true,
-                  dying: false,
-                  old: false
+                  brain: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.brain,
+                  dying: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.dying,
+                  old: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.old
                 }
               }
             }
           }
-
+          
         ).then(function(){
           $scope.message = '저장되었습니다.';
         });
