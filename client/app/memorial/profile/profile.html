@@ -4,8 +4,7 @@
 			<!-- <tabset>
 				<tab heading="heading"></tab>
 			</tabset> -->
-			
-    	<div class="col-md-8">
+			<div class="col-md-8">
     		<div class="divider"/>
     		<h3>기본 정보</h3>
 	    	<div class="input-group">
@@ -33,6 +32,32 @@
 					 <span ng-show="memorialForm.dateOfBirth.$error.date">정확한 날짜 형식이 아닙니다.</span>
 				</div>
 				<br/>
+
+				<div class="input-group">
+				  <span class="input-group-addon">혈액형</span>
+				  <select class="form-control" ng-model="copyMemorial.bloodType">
+					  <option>A</option>
+					  <option>B</option>
+					  <option>AB</option>
+					  <option>O</option>
+					</select>
+				</div>
+				<br/>
+
+				<div class="input-group">
+				  <span class="input-group-addon">키</span>
+				  <input type="number" class="form-control" min="0" name="height" placeholder="키를 입력하세요" ng-model="copyMemorial.height">
+				  <span class="input-group-addon">cm</span>
+				</div>
+				<br/>
+
+				<div class="input-group">
+				  <span class="input-group-addon">몸무게</span>
+				  <input type="number" class="form-control" min="0" name="weight" placeholder="몸무게를 입력하세요" ng-model="copyMemorial.weight">
+				  <span class="input-group-addon">kg</span>
+				</div>
+				<br/>
+
 
 				소개글
 				<textarea class="form-control" ng-model="copyMemorial.description" rows="5" placeholder="소개글을 입력하세요.." style="resize: vertical;margin: 1px 0px 10px;"/>
@@ -146,7 +171,89 @@
 					</div>
 				</div>
 
+				<!-- work  -->
+				<div class="divider"/>
+				<h3>직장</h3>
 
+				<!-- work List -->
+				<div ng-if="copyMemorial.work">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>
+									이름
+								</th>
+								<th>
+								  기간
+								</th>
+								<th>
+									설명
+								</th>
+								<th></th>
+							</tr>
+						</thead>
+							<tbody>
+							<tr ng-repeat="(key, work) in copyMemorial.work">
+								<td>
+									{{work.name}}
+								</td>
+								<td>
+									{{work.from}} <span ng-if="work.end">-</span> {{work.end}}
+								</td>
+								<td>
+									{{work.description}}
+								</td>
+								<td>
+									<i class="cursor fa fa-times-circle-o fa-2x text-danger" ng-click="removeItemFromObject(key,copyMemorial.work)"></i>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/>
+				</div>
+
+				<button type="button" class="btn btn-default" ng-click="toggleAddNewWorkFlag()">
+				  <i class="fa fa-plus-square-o"></i> New 
+				</button>
+				<br/><br/>
+
+				<!-- new work -->
+				<div class="well" ng-if="addNewWorkFlag">
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="new-work-name">직장 이름</label>
+						<div class="col-md-9">
+							<input type="text" id="new-work-name" name="new-work-name" class="form-control" ng-model="newWork.name">
+						</div>
+					</div>
+					<br/>
+
+					<div class="form-group">
+						<label class="col-md-3 control-label">기간</label>
+						<div class="col-md-9">
+							<input type="number" class="form-control" name="dateOfNewWorkStart" min="1900" ng-model="newWork.from" placeholder="시작연도"/>
+						</div>
+					</div>
+					<div class="col-md-9 col-md-offset-3">
+						<input type="number" class="form-control" name="dateOfNewWorkEnd" min="1900" ng-model="newWork.end" placeholder="종료연도"/>
+					</div>
+					<br/>
+
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="new-school-description">추가 정보</label>
+						<div class="col-md-9">
+							<input type="text" id="new-school-description" name="new-school-description" class="form-control" ng-model="newWork.description">
+						</div>
+					</div>
+					<br/>
+
+					<div>
+						<button type="button" class="btn btn-success" ng-disabled="!newWork.name" ng-click="addNewWork()">
+						  Add 
+						</button>
+					</div>
+				</div>
+
+				<!-- Public -->
 				<div class="divider"/>
 				<h3>공개 설정</h3>
 				<div class="form-group">

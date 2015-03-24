@@ -22,8 +22,15 @@ angular.module('doresolApp')
     $scope.newSchool = {};
     $scope.addNewSchoolFlag = false;
 
+    $scope.newWork= {};
+    $scope.addNewWorkFlag = false;
+
     $scope.toggleAddNewSchoolFlag = function(){
       $scope.addNewSchoolFlag = !$scope.addNewSchoolFlag;
+    }
+
+    $scope.toggleAddNewWorkFlag = function(){
+      $scope.addNewWorkFlag = !$scope.addNewWorkFlag;
     }
 
     $scope.addNewSchool = function(){
@@ -36,6 +43,18 @@ angular.module('doresolApp')
       $scope.copyMemorial.school[key] = $scope.newSchool;
       $scope.newSchool = {};
       $scope.toggleAddNewSchoolFlag();
+    }
+
+    $scope.addNewWork = function(){
+      if(!$scope.copyMemorial.work){
+        $scope.copyMemorial.work = {};
+      }
+      // $scope.copyMemorial.school.push($scope.newSchool);
+      var key = Util.getUniqueId();
+
+      $scope.copyMemorial.work[key] = $scope.newWork;
+      $scope.newWork = {};
+      $scope.toggleAddNewWorkFlag();
     }
 
     $scope.removeItemFromObject = function(index, object){
@@ -55,7 +74,11 @@ angular.module('doresolApp')
             public : $scope.copyMemorial.public,
 
             wedding : $scope.copyMemorial.wedding,
-            school : $scope.copyMemorial.school
+            school : $scope.copyMemorial.school,
+            work : $scope.copyMemorial.work,
+            height: $scope.copyMemorial.height,
+            weight: $scope.copyMemorial.weight,
+            bloodType: $scope.copyMemorial.bloodType
     			}
     		).then(function(){
     			$scope.message = '저장되었습니다.';
