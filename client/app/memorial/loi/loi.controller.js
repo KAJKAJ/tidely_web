@@ -15,7 +15,7 @@ angular.module('doresolApp')
 
     $scope.memorial.$loaded().then(function(value) {
       console.log('-----------');
-      console.log($scope.memorial.letter_of_intent.medical_care.brain);
+      console.log($scope.memorial.letter_of_intent.medical_care);
       $scope.leader = User.findById($scope.memorial.ref_user);
       User.setUsersObject($scope.memorial.ref_user);
     });
@@ -28,7 +28,6 @@ angular.module('doresolApp')
         console.log($scope.memorial);
 
         Memorial.update($scope.memorialKey,
-
           {
             letter_of_intent: {
               funeral: {
@@ -36,15 +35,30 @@ angular.module('doresolApp')
               },
               medical_care: {
                 surviving_treatment: {
+
                   brain: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.brain,
                   dying: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.dying,
-                  old: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.old
+                  old: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.old,
+
+                  life_support: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.life_support,
+                  nutrition: $scope.memorial.letter_of_intent.medical_care.surviving_treatment.nutrition
+                },
+
+                agent: {
+                  name_1: $scope.memorial.letter_of_intent.medical_care.agent.name_1,
+                  relation_1: $scope.memorial.letter_of_intent.medical_care.agent.relation_1,
+                  tel_1: $scope.memorial.letter_of_intent.medical_care.agent.tel_1,
+
+                  name_2: $scope.memorial.letter_of_intent.medical_care.agent.name_2,
+                  relation_2: $scope.memorial.letter_of_intent.medical_care.agent.relation_2,
+                  tel_2: $scope.memorial.letter_of_intent.medical_care.agent.tel_2,
                 }
               }
             }
           }
           
         ).then(function(){
+          $scope.isSubmitted = true;
           $scope.message = '저장되었습니다.';
         });
       }
