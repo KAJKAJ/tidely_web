@@ -5,7 +5,29 @@
 <br/>
 
 <div class="copyright  text-center" ng-controller="FooterCtrl">
-  <div class="container">
+	<div>
+		<toaster-container toaster-options="
+		    {
+		      'close-button': false,
+		      'debug': false,
+		      'newest-on-top': false,
+		      'progress-bar': false,
+		      'position-class': 'toast-top-center',
+		      'prevent-duplicates': false,
+		      'onclick': null,
+		      'show-duration': '100',
+		      'hide-duration': '1300',
+		      'time-out': '1300',
+		      'extended-time-out': '1300',
+		      'show-easing': 'swing',
+		      'hide-easing': 'linear',
+		      'show-method': 'fadeIn',
+		      'hide-method': 'fadeOut'
+		    }">
+		</toaster-container>
+	</div>
+	
+	<div class="container">
       <h5>© 2015 <a href="#"> HummingTop. All Rights Reserved.</a></h5>
       <!-- <a href="http://www.facebook.com/doresol.net" target="_blank" style="color:white;"><i class="fa fa-facebook-square fa-3x"></i></a> -->
       <br/>
