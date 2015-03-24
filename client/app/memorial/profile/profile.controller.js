@@ -35,30 +35,33 @@ angular.module('doresolApp')
 
     $scope.addNewSchool = function(){
       if(!$scope.copyMemorial.school){
-        $scope.copyMemorial.school = [];
+        $scope.copyMemorial.school = {};
       }
-      $scope.copyMemorial.school.push($scope.newSchool);
+      // $scope.copyMemorial.school.push($scope.newSchool);
+      var key = Util.getUniqueId();
+
+      $scope.copyMemorial.school[key] = $scope.newSchool;
       $scope.newSchool = {};
       $scope.toggleAddNewSchoolFlag();
     }
 
-    $scope.removeItemFromArray = function(index, object){
-      object.splice(index,1);
+    $scope.removeItemFromObject = function(index, object){
+      delete object[index];
     }
 
     $scope.updateMemorial = function(form){
     	if(form.$valid){
     		Memorial.update($scope.copyMemorial.$id,
     			{
-    				name:$scope.copyMemorial.name,
-    				dateOfBirth:moment($scope.copyMemorial.dateOfBirth).format("YYYY-MM-DD"),
+    				name : $scope.copyMemorial.name,
+    				dateOfBirth : moment($scope.copyMemorial.dateOfBirth).format("YYYY-MM-DD"),
     				// dateOfDeath:moment($scope.copyMemorial.dateOfDeath).format("YYYY-MM-DD"),
-            dateOfDeath:moment().format("YYYY-MM-DD"),
+            dateOfDeath : moment().format("YYYY-MM-DD"),
 
-            description: $scope.copyMemorial.description?$scope.copyMemorial.description:null,
-            public:$scope.copyMemorial.public,
+            description : $scope.copyMemorial.description?$scope.copyMemorial.description:null,
+            public : $scope.copyMemorial.public,
 
-            wedding:$scope.copyMemorial.wedding,
+            wedding : $scope.copyMemorial.wedding,
             school : $scope.copyMemorial.school
     			}
     		).then(function(){
