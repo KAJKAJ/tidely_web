@@ -10,10 +10,12 @@ angular.module('doresolApp')
     $scope.copyMemorial = {};
     $scope.memorial.$loaded().then(function(value){
       angular.copy($scope.memorial,$scope.copyMemorial);
-      if(!$scope.copyMemorial.special_people){
-        $scope.copyMemorial.special_people = {};
-      }
-
+      
+      if(!$scope.copyMemorial.special_people)$scope.copyMemorial.special_people = {};
+      if(!$scope.copyMemorial.special_people.family)$scope.copyMemorial.special_people.family = {};
+      if(!$scope.copyMemorial.special_people.friend)$scope.copyMemorial.special_people.friend = {};
+      if(!$scope.copyMemorial.special_people.other)$scope.copyMemorial.special_people.other = {};
+      
       $scope.isOwner = Memorial.isOwner();
       $scope.isMember = Memorial.isMember();
       $scope.isGuest = Memorial.isGuest();
