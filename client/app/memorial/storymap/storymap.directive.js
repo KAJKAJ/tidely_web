@@ -85,9 +85,10 @@ angular.module('doresolApp')
 
         $scope.$watch('mapSearchDetails',function(value){
           if(value){
-            var lon = value.geometry.location.B;
+            
+            var lon = value.geometry.location.D;
             var lat = value.geometry.location.k;
-
+            
             $scope.map.center.latitude = lat;
             $scope.map.center.longitude = lon;
 
