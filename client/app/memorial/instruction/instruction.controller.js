@@ -15,15 +15,21 @@ angular.module('doresolApp')
       $scope.isMember = Memorial.isMember();
       $scope.isGuest = Memorial.isGuest();
 
-      angular.forEach($scope.memorial.special_people.family, function(value, key) {
-        $scope.peopleOption.push(value);
-      });
-      angular.forEach($scope.memorial.special_people.friend, function(value, key) {
-        $scope.peopleOption.push(value);
-      });
-      angular.forEach($scope.memorial.special_people.other, function(value, key) {
-        $scope.peopleOption.push(value);
-      });
+      if($scope.memorial.special_people && $scope.memorial.special_people.family){
+        angular.forEach($scope.memorial.special_people.family, function(value, key) {
+          $scope.peopleOption.push(value);
+        });
+      }
+      if($scope.memorial.special_people && $scope.memorial.special_people.friend){
+        angular.forEach($scope.memorial.special_people.friend, function(value, key) {
+          $scope.peopleOption.push(value);
+        });
+      }
+      if($scope.memorial.special_people && $scope.memorial.special_people.other){
+        angular.forEach($scope.memorial.special_people.other, function(value, key) {
+          $scope.peopleOption.push(value);
+        });
+      }
     });
 
     $scope.instructionArray = [];
